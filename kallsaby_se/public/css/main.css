@@ -1,0 +1,250 @@
+body, html{
+	margin:0;
+}
+
+.content{
+	padding:30px;
+}
+
+
+.nav-main .logo{
+	float:left;
+	height:40px;
+	padding:15px 30px;
+	font-size: 1.4em;
+	line-height:40px;
+}
+.nav-main .logo > a{
+	text-decoration: none;
+}
+
+
+.nav-main{
+	opacity: 0.95;  
+	-webkit-box-shadow:  0px 0px 10px #000;
+    box-shadow:  0px 0px 10px #000;
+    z-index:20;
+    position: fixed;
+	width:100%;
+	/*background-color:#222;*/
+	height:70px;
+	/*color:#fff;*/
+}
+
+.nav-main > ul{
+	margin:0;
+	padding:0;
+	float:left;
+	list-style-type: none;
+}
+
+.nav-main > ul > li {
+	float: left;
+}
+
+.nav-item{
+	display: inline-block;
+	padding:15px 20px;
+	height:40px;
+	line-height: 40px;
+	margin:0;
+	/*color: #fff;*/
+	text-decoration: none;
+}
+
+.nav-item:hover{
+	/*background-color: #444;*/
+}
+
+.nav-item:focus{
+	/*background-color: #444;*/
+}
+
+.nav-item:focus ~ .nav-content{
+	max-height: 400px;
+	-webkit-transition:max-height 0.4s ease-in;
+	-moz-transition:max-height 0.4s ease-in;
+	transition:max-height 0.4s ease-in;
+}
+
+.nav-option{
+	display:none;
+}
+
+.nav-content {
+	position: absolute;
+	top:70px;
+	overflow:hidden;
+	/*/*background-color: #222;*/
+	/*color: #fff;*/
+	z-index: 2;
+	max-height: 0;
+
+}
+
+.nav-content a {
+	/*color:#fff;*/
+	text-decoration: none;
+}
+
+.nav-content:hover {
+	max-height:400px;
+}
+
+.nav-content a:hover {
+	text-decoration: underline;
+}
+
+.nav-sub {
+	padding:20px;
+}
+
+.nav-sub ul{
+	padding:0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.nav-sub ul li a {
+	display: inline-block;
+	padding: 5px 0;
+}
+
+.nav-main .login_button{
+	margin-right:80px;
+	float:right;
+}
+
+.warning_text{
+	color:red;
+}
+
+.body-background{
+	position: relative;
+	z-index:0;
+	width: 100%;
+	margin: auto;
+	margin-top: 0;
+	padding-top: 70px;
+	min-height: 537px;
+	background-image: url("/kallsaby_se/public/pic/background.png");
+	background-repeat: repeat;
+}
+
+.body-content{
+	position: static;
+	z-index:1;
+	width: 95%;
+	margin: auto;
+	margin-top: -70px;
+	padding-top: 78px;
+	min-height: 537px;
+	background-color:#ddd;
+	-webkit-box-shadow: 2px 0px 10px #000, -2px 0px 10px #000;
+    box-shadow: 2px 0px 10px #000, -2px 0px 10px #000;
+
+}
+
+.foot-bar{
+	float:bottom;
+	position: relative;
+	width:100%;
+	height:35px;
+	-webkit-box-shadow: 0px -10px 10px -10px #000;
+    box-shadow: 0px -10px 10px -10px #000;
+}
+
+.title-bar{
+	width:80%;
+	background-color:#999;
+	margin-top:8px;
+	margin-left:10%;
+	margin-right:10%;
+	position: relative;
+	border: 0px solid #222;
+	border-radius: 2px;
+	font-size: 20px;
+	text-align: center;
+	-webkit-box-shadow: 1px 0px 2px #444, -1px 0px 2px #444, 0px 1px 2px #444, 0px -1px 2px #444;
+    box-shadow: 1px 0px 2px #444, -1px 0px 2px #444, 0px 1px 2px #444, 0px -1px 2px #444;
+
+}
+
+.holder-bar{
+	background-color:#ccc;
+	position: relative;
+	margin-left:25%;
+	margin-right:25%;
+	margin-top: 5px;
+	padding:5px;
+	border-radius: 2px;
+
+	-webkit-box-shadow: 1px 0px 2px #666, -1px 0px 2px #666, 0px 1px 2px #666, 0px -1px 2px #666;
+    box-shadow: 1px 0px 2px #666, -1px 0px 2px #666, 0px 1px 2px #666, 0px -1px 2px #666;
+}
+
+.form-select{
+	position: relative;
+	width: 240px;
+   	height: 34px;
+   	overflow: hidden;
+   	
+   	border: 2px solid #ccc;
+   	-webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:12px;
+    -webkit-box-shadow: 1px 0px 2px #666, -1px 0px 2px #666, 0px 4px 8px #666, 0px -1px 2px #666;
+    box-shadow: 1px 0px 2px #666, -1px 0px 2px #666, 0px 4px 8px #666, 0px -1px 2px #666;
+
+
+
+}
+
+.form-select select {
+	background: url("/kallsaby_se/public/pic/down_arrow.png") no-repeat right #ccc;
+	width: 240px;
+	padding: 5px;
+	font-size: 16px;
+   	line-height: 1;
+  	border: 1px;
+  	border-radius: 0px;
+  	height: 34px;
+   	-webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+    text-indent:5px;
+
+}
+
+.form-select input, textarea, select, a { outline: none; }
+.form-field input, textarea, select, a { outline: none; }
+
+
+.form-field{
+	position: relative;
+	width: 240px;
+   	height: 34px;   	   	
+   	border: 2px solid #ccc;
+
+   	-webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:12px;
+    -webkit-box-shadow: 1px 0px 2px #666, -1px 0px 2px #666, 0px 4px 8px #666, 0px -1px 2px #666;
+    box-shadow: 1px 0px 2px #666, -1px 0px 2px #666, 0px 4px 8px #666, 0px -1px 2px #666;
+}
+
+.form-field input{
+	text-indent:10px;
+	background:#ddd;
+	width: 240px;
+	padding: 0px;
+	font-size: 16px;
+   	line-height: 1;
+   	border:0;
+  	border-radius: 8px;
+  	height: 34px;
+   	-webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+}

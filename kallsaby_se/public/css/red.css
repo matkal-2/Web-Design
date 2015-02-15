@@ -1,0 +1,33 @@
+.nav-main .logo > a{
+	color:#fff;
+}
+
+.nav-main{
+	background-color:#422;
+	color:#fff;
+}
+
+.nav-item{
+	color: #fff;
+}
+
+.nav-item:hover{
+	background-color: #644;
+}
+
+.nav-item:focus{
+	background-color: #644;
+}
+
+.nav-content {
+	background-color: #422;
+	color: #fff;
+}
+
+.nav-content a {
+	color:#fff;
+}
+.foot-bar{
+	background-color:#422;
+	color:#fff;
+}
