@@ -8,18 +8,31 @@ echo '<div class="body-background">';
 
 
 echo '
-	<form action="" method="POST">
-		Username:<br>
-		<input type="text" name="register_username" id="register_username" value="">
-		<br>
-		Email Address:<br>
-		<input type="text" name="register_email" id="register_username" value="">
-		<br>
-		Password:<br>
-		<input type="text" name="register_password" id="register_password" value="">
-		<br><br>
-		<input type="submit" value="Submit">
-	</form>
+	<div class="body-content">
+		<div class="body-center-container">
+			<div class="holder-bar">
+				<form action="" method="POST">
+					<fieldset class="form-fieldset">
+						<legend>Register</legend>
+						<br>
+						<div class="form-field">
+							<input type="name" name="register_username" id="register_username" placeholder="Username">
+						</div>
+						<br>
+						<div class="form-field">
+							<input type="email" name="register_email" id="register_username" placeholder="Email">
+						</div>
+						<br>
+						<div class="form-field">
+							<input type="password" name="register_password" id="register_password" placeholder="Password">
+						</div>
+						<br><br>
+						<input type="submit" value="Register" class="form-button">
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
 	';
 	if(!$data['registerd']){
 		echo '

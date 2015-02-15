@@ -7,9 +7,9 @@ if(isset($data['logged_in']) && $data['logged_in']){
 				<div class="nav-content">
 					<div class="nav-sub">
 						<ul>
-							<li><a href="#">Profile</a></li>
-							<li><a href="#">Settings</a></li>
-							<li><a href="?logOut=1">Log Out</a></li>
+							<li><a href="/kallsaby_se/public/account/index">Profile</a></li>
+							<li><a href="/kallsaby_se/public/account/settings">Settings</a></li>
+							<li><a href="/kallsaby_se/public/home/index?logOut=1">Log Out</a></li>
 						</ul>
 					</div>
 				</div>

@@ -9,16 +9,28 @@ echo '<div class="body-background">';
 
 
 echo '
-	<form action="" method="POST">
-		Username:<br>
-		<input type="text" name="login_username" id="login_username" value="">
-		<br>
-		Password:<br>
-		<input type="text" name="login_password" id="login_password" value="">
-		<br><br>
-		<input type="submit" value="Submit">
-	</form>
-	Not a user? <a href="/kallsaby_se/public/login/register">Register here!</a>
+	<div class="body-content">
+		<div class="body-center-container">
+			<div class="holder-bar">
+				<form action="" method="POST">
+					<fieldset class="form-fieldset">
+						<legend>Login</legend>
+						<div class="form-field">
+							<input type="name" name="login_username" id="login_username" placeholder="Username">
+						</div>
+						<br>
+						<div class="form-field">
+							<input type="password" name="login_password" id="login_password" placeholder="Password" >
+						</div>
+						<br><br>
+						<input type="submit" value="Login" class="form-button">
+						<br>
+						<p>Not a user? <a href="/kallsaby_se/public/login/register">Register here!</a><p>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
 	';
 
 echo '</div>';

@@ -13,7 +13,7 @@ echo '<div class="holder-bar">';
 		
 echo '
 		
-			<form action="" method="POST" >
+			<form action="" method="POST" id="form-main">
 				<div class="form-select">
 					<select id="color_theme" name="color_theme" type="text">
 						<option value="red">Red</option>
@@ -28,7 +28,7 @@ echo '
 				</div>
 
 				<br>
-				 <button type="submit" name="submit"><span>Change Colour</span></button>
+				 <button type="submit" name="submit" class="form-button"><span>Change Colour</span></button>
 			</form>
 				
 		';

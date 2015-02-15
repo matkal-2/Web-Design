@@ -10,6 +10,62 @@ class visitor{
 		}	
 	}
 
+	private function getUser($entityManager, $username){
+		require_once 'entity/User.php';
+
+		$sql = 'SELECT u FROM User u WHERE u.username = :name';
+		$query = $entityManager->createQuery($sql);
+		$query->setParameter('name',$username);
+		$users = $query->getResult();
+		if(!$users == null){
+			$user = $users[0];
+		}
+		else{
+			return null;
+		}
+		if ($user == null) {
+		    return null;
+		}
+		else{
+			return $user;
+		}
+	}
+
+	private function getUserInformation($entityManager, $id){
+		require_once 'entity/User_details.php';
+		$sql = 'SELECT u FROM User_details u WHERE u.user_id = :id';
+		$query = $entityManager->createQuery($sql);
+		$query->setParameter('id',$id);
+		$users_detail = $query->getResult();
+		if(!$users_detail == null){
+			$user_detail = $users_detail[0];
+		}
+		else{
+			return null;
+		}
+		if ($user_detail == null) {
+		    return null;
+		}
+		else{
+			return $user_detail;
+		}
+
+	}
+
+	public function information($entityManager){
+		require_once 'entity/User.php';
+		require_once 'entity/User_details.php';
+		$user = visitor::getUser($entityManager, $_SESSION['username']);
+		if(!$user==null){
+			$user_information = visitor::getUserInformation($entityManager, $user->getId());
+			if(!$user_information==null){
+				$information = array( 'username'=> $user->getUsername(), 'email'=> $user_information->getEmail(), 'color_theme' => $user_information->getColortheme() );
+				return $information;
+			}
+		}
+		return null;
+	}
+
 	public function register($entityManager){
 		require_once 'entity/User.php';
 		require_once 'entity/User_details.php';
@@ -54,14 +110,8 @@ class visitor{
 		require_once 'entity/User.php';
 		$username = $_REQUEST['login_username'];
 		$password = $_REQUEST['login_password'];
-		$sql = 'SELECT u FROM User u WHERE u.username = :name';
-		$query = $entityManager->createQuery($sql);
-		$query->setParameter('name',$username);
-		$users = $query->getResult();
-		if(!$users == null){
-		$user = $users[0];
-		}else{$user = null;}
-		//$user = $entityManager->find('User', $username);
+
+		$user = visitor::getUser($entityManager, $username);
 		if ($user == null) {
 			echo 'user is null';
 		    return false;

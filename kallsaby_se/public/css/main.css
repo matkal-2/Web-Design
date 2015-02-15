@@ -1,5 +1,6 @@
 body, html{
 	margin:0;
+	height: 100%;
 }
 
 .content{
@@ -124,31 +125,34 @@ body, html{
 	z-index:0;
 	width: 100%;
 	margin: auto;
-	margin-top: 0;
-	padding-top: 70px;
-	min-height: 537px;
+	min-height: 100vh;
 	background-image: url("/kallsaby_se/public/pic/background.png");
 	background-repeat: repeat;
 }
 
 .body-content{
-	position: static;
+
+	position: relative;
 	z-index:1;
 	width: 95%;
-	margin: auto;
-	margin-top: -70px;
-	padding-top: 78px;
-	min-height: 537px;
+	margin:auto;
+	padding-top: 70px;
+	padding-bottom: 70px;
 	background-color:#ddd;
 	-webkit-box-shadow: 2px 0px 10px #000, -2px 0px 10px #000;
     box-shadow: 2px 0px 10px #000, -2px 0px 10px #000;
 
 }
 
+.body-center-container{
+	text-align: center;
+}
+
 .foot-bar{
 	float:bottom;
 	position: relative;
 	width:100%;
+	margin-top:-35px;
 	height:35px;
 	-webkit-box-shadow: 0px -10px 10px -10px #000;
     box-shadow: 0px -10px 10px -10px #000;
@@ -171,14 +175,14 @@ body, html{
 }
 
 .holder-bar{
+	display:inline-block;
 	background-color:#ccc;
 	position: relative;
-	margin-left:25%;
-	margin-right:25%;
-	margin-top: 5px;
+	float:middle;
+	margin-top: 20px;
 	padding:5px;
 	border-radius: 2px;
-
+	
 	-webkit-box-shadow: 1px 0px 2px #666, -1px 0px 2px #666, 0px 1px 2px #666, 0px -1px 2px #666;
     box-shadow: 1px 0px 2px #666, -1px 0px 2px #666, 0px 1px 2px #666, 0px -1px 2px #666;
 }
@@ -189,7 +193,7 @@ body, html{
    	height: 34px;
    	overflow: hidden;
    	
-   	border: 2px solid #ccc;
+   	border: 3px solid #aaa;
    	-webkit-border-radius:8px;
     -moz-border-radius:8px;
     border-radius:12px;
@@ -201,7 +205,7 @@ body, html{
 }
 
 .form-select select {
-	background: url("/kallsaby_se/public/pic/down_arrow.png") no-repeat right #ccc;
+	background: url("/kallsaby_se/public/pic/down_arrow.png") no-repeat right #ddd;
 	width: 240px;
 	padding: 5px;
 	font-size: 16px;
@@ -217,6 +221,10 @@ body, html{
 
 }
 
+.form-select select:focus {
+	background: url("/kallsaby_se/public/pic/down_arrow.png") no-repeat right #d0d3d0;
+}
+
 .form-select input, textarea, select, a { outline: none; }
 .form-field input, textarea, select, a { outline: none; }
 
@@ -225,8 +233,7 @@ body, html{
 	position: relative;
 	width: 240px;
    	height: 34px;   	   	
-   	border: 2px solid #ccc;
-
+   	border: 3px solid #aaa;
    	-webkit-border-radius:8px;
     -moz-border-radius:8px;
     border-radius:12px;
@@ -241,10 +248,42 @@ body, html{
 	padding: 0px;
 	font-size: 16px;
    	line-height: 1;
-   	border:0;
+   	border:0px;
   	border-radius: 8px;
   	height: 34px;
-   	-webkit-appearance:none;
+   	
+}
+
+.form-field :focus{
+	background:#d0d3d0;
+}
+
+.form-button{
+	background-color: #bbb;
+	width:110px;
+	height: 24px;
+	border: 2px solid #888;
+	-webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
+    outline: none;
+}
+
+.form-button:hover{
+	background-color: #ddd;
+	border: 2px solid #999;
+	color:#020;
+	cursor:pointer;
+}
+
+.form-button:active{
+	background-color: #666;
+	border: 2px solid #333;
+	-webkit-appearance:none;
     -moz-appearance:none;
     appearance:none;
+}
+
+.form-fieldset{
+	max-width: 250px;
 }

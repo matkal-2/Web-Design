@@ -1,27 +1,21 @@
 <?php 
 
 class Home extends Controller{
-	public function index($name = '', $role = ''){
+	public function index(){
 		session_start();
 		if(isset($_GET['logOut'])){
 			session_destroy();
-			header( 'Location: /kallsaby_se/public/home/index' ) ;
+			header( 'Location: /kallsaby_se/public/login/index' ) ;
 		}
-
 		$visitor = $this->model('Visitor');
-		$visitor->name = $name;
-		$visitor->role = $role;
-		
 
-		$this->view('home/index', ['name' => $visitor->name, 'role' => $visitor->role, 'color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+		$this->view('home/index', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
 	}
-	public function about($name = '', $role = ''){
+	public function about(){
 		session_start();
 
 		$visitor = $this->model('Visitor');
-		$visitor->name = $name;
-		$visitor->role = $role;
 
-		$this->view('home/about', ['name' => $visitor->name, 'role' => $visitor->role, 'color_theme' => 'grey']);
+		$this->view('home/about', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
 	}
 }
