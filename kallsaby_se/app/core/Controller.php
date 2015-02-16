@@ -1,10 +1,17 @@
 <?php
 
 class Controller{
+	private $em;
 
 	public function getManager(){
-		require_once "../bootstrap.php";
-		return $entityManager;
+		if(isset($this->em)){
+			return $this->em;
+		}
+		else{
+			require_once "../bootstrap.php";
+			$this->em = $entityManager;
+			return $this->em;
+		}
 	}
 
 	public function model($model){

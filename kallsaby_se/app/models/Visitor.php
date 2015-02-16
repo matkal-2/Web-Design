@@ -13,10 +13,20 @@ class visitor{
 	private function getUser($entityManager, $username){
 		require_once 'entity/User.php';
 
-		$sql = 'SELECT u FROM User u WHERE u.username = :name';
-		$query = $entityManager->createQuery($sql);
-		$query->setParameter('name',$username);
-		$users = $query->getResult();
+		try{
+			$sql = 'SELECT u FROM User u WHERE u.username = :name';
+			$query = $entityManager->createQuery($sql);
+			$query->setParameter('name',$username);
+			$users = $query->getResult();
+		}
+		catch(PDOException $e){
+			$added_user = null;
+		}
+		catch(Exception $e){
+			$added_user = null;
+		}
+
+		
 		if(!$users == null){
 			$user = $users[0];
 		}
@@ -33,10 +43,21 @@ class visitor{
 
 	private function getUserInformation($entityManager, $id){
 		require_once 'entity/User_details.php';
-		$sql = 'SELECT u FROM User_details u WHERE u.user_id = :id';
-		$query = $entityManager->createQuery($sql);
-		$query->setParameter('id',$id);
-		$users_detail = $query->getResult();
+
+		try{
+			$sql = 'SELECT u FROM User_details u WHERE u.user_id = :id';
+			$query = $entityManager->createQuery($sql);
+			$query->setParameter('id',$id);
+			$users_detail = $query->getResult();
+		}
+		catch(PDOException $e){
+			return null;
+		}
+		catch(Exception $e){
+			return null;
+		}
+
+		
 		if(!$users_detail == null){
 			$user_detail = $users_detail[0];
 		}
@@ -59,7 +80,7 @@ class visitor{
 		if(!$user==null){
 			$user_information = visitor::getUserInformation($entityManager, $user->getId());
 			if(!$user_information==null){
-				$information = array( 'username'=> $user->getUsername(), 'email'=> $user_information->getEmail(), 'color_theme' => $user_information->getColortheme() );
+				$information = array( 'username'=> $user->getUsername(), 'email'=> $user_information->getEmail(), 'user_color_theme' => $user_information->getColortheme() );
 				return $information;
 			}
 		}
@@ -95,11 +116,9 @@ class visitor{
 			$entityManager->flush();
 		}
 		catch(PDOException $e){
-			echo $e->getMessage();
 			$added_user = false;
 		}
 		catch(Exception $e){
-			echo $e->getMessage();
 			$added_user = false;
 		}
 		
@@ -133,9 +152,42 @@ class visitor{
 		}	
 	}
 
-	public function setColorTheme(){
-		if(isset($_REQUEST['color_theme'])){
-  			$this->color_theme = $_REQUEST['color_theme'];
-   		}
+	public function accountSetting($entityManager){
+		$info_updated=array('color_theme' => false, 'password' => 'none', 'email' => false);
+		$user = visitor::getUser($entityManager, $_SESSION['username']);
+		if(!$user==null){
+			$user_information = visitor::getUserInformation($entityManager, $user->getId());
+			if(!$user_information==null){
+				if($user_information->getColortheme() != $_POST['color_theme']){
+					$user_information->setColortheme($_POST['color_theme']);
+					$entityManager->persist($user_information);
+					$info_updated['color_theme'] = true;
+				}
+				if($_POST['change_email'] != null){
+					$user_information->setEmail($_POST['change_email']);
+					$entityManager->persist($user_information);
+					$info_updated['email'] = true;
+				}
+				if($_POST['new_password'] != null || $_POST['check_password'] != null || $_POST['repeat_password'] != null){
+					if($_POST['check_password'] != null){
+						$crypt_password = crypt($_POST['check_password'], $user->getSalt());
+						if($crypt_password == $user->getPassword()){
+							if($_POST['new_password'] != null && $_POST['repeat_password'] != null){
+								if($_POST['new_password'] == $_POST['repeat_password']){
+									$salt = mcrypt_create_iv(16, MCRYPT_DEV_RANDOM);
+									$hashed_password = crypt( $_POST['new_password'], $salt );
+									$user->setPassword($hashed_password);
+									$user->setSalt($salt);
+									$entityManager->persist($user);
+									$info_updated['password'] = 'updated';
+								}else{$info_updated['password'] = 'failed';}
+							}else{$info_updated['password'] = 'failed';}
+						}else{$info_updated['password'] = 'failed';}
+					}else{$info_updated['password'] = 'failed';}
+				}
+				$entityManager->flush();
+			}
+		}
+   		return $info_updated;
 	}
 }
