@@ -1,0 +1,84 @@
+body, html{
+	margin:0;
+	height: 100%;
+}
+
+.nav-fam{
+	overflow: auto;
+	background-color: #f0f0ed;
+	width:100%;
+	min-height: 50px;
+	padding: 15px 0% 15px 0%;
+	box-shadow: 0px 0px 3px 2px #111;
+	
+	
+}
+
+.nav-fam a{
+	text-decoration: none;
+	color:#000;
+}
+
+.nav-fam a:hover > .personal-card{
+	-webkit-box-shadow: 3px 0px 8px #444, -3px 0px 8px #444, 0px 3px 8px #444, 0px -3px 8px #444;
+    box-shadow: 3px 0px 8px #444, -3px 0px 8px #444, 0px 3px 8px #444, 0px -3px 8px #444;
+}
+
+.personal-card{
+	overflow: auto;
+	background-color: #ddd;
+	width: 18%;
+	min-height: 145px;
+	float:left;
+	margin: 0px 1% 0px 1%;
+	-webkit-box-shadow: 1px 0px 2px #444, -1px 0px 2px #444, 0px 1px 2px #444, 0px -1px 2px #444;
+    box-shadow: 1px 0px 2px #444, -1px 0px 2px #444, 0px 1px 2px #444, 0px -1px 2px #444;
+}
+
+.body-fam{
+	text-align: center;
+}
+
+.body-fam h1{
+	text-shadow: 0px 0px 2px #444;
+	font-size: 60px;
+}
+
+.body-fam p{
+	margin:0 20% 20px 20%;
+}
+
+.foot-fam{
+	padding-top: 8px;
+	text-align: center;
+	box-shadow: 0px -2px 3px #111;
+	width: 100%;
+	min-height: 70px;
+	background-color: #f0f0ed;
+}
+
+.foot-fam p{
+	margin:2px;
+	color:#888;
+}
+
+.profile_pic{
+	position: relative;
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	-webkit-box-shadow: 1px 0px 2px #444, -1px 0px 2px #444, 0px 1px 2px #444, 0px -1px 2px #444;
+    box-shadow: 1px 0px 2px #444, -1px 0px 2px #444, 0px 1px 2px #444, 0px -1px 2px #444;
+}
+
+.profile_name{
+	float:top;
+	text-align: center;
+	margin:2px;
+	font-size: 21px;
+}
+
+.profile_name h2{
+	margin:0;
+	text-shadow: 0px 0px 1px #444;
+}

@@ -3,7 +3,7 @@
 
 class App{
 
-	protected $webpage = 'mattias';
+	protected $webpage = 'fam';
 	protected $controller ='home';
 	protected $method = 'index';
 	protected $params = [];
@@ -16,9 +16,11 @@ class App{
 			unset($url[0]);
 
 		}
-		if(file_exists('../app/controllers/'. $this->webpage .'/'. $url[1] . '.php' )){
-			$this->controller = $url[1];
-			unset($url[1]);
+		if(isset($url[1])){
+			if(file_exists('../app/controllers/'. $this->webpage .'/'. $url[1] . '.php' )){
+				$this->controller = $url[1];
+				unset($url[1]);
+			}
 		}
 
 		require_once '../app/controllers/'. $this->webpage .'/'. $this->controller . '.php';
