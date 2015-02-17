@@ -18,4 +18,12 @@ class Home extends Controller{
 
 		$this->view('mattias/home/about', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
 	}
+
+	public function cv(){
+		session_start();
+
+		$visitor = $this->model('Visitor');
+
+		$this->view('mattias/home/cv', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+	}
 }

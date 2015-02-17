@@ -21,11 +21,19 @@ echo '
 						<br>
 						<div class="form-field">
 							<input type="password" name="login_password" id="login_password" placeholder="Password" >
-						</div>
+						</div>';
+						if(isset($data['loggin_failed'])){
+							if($data['loggin_failed'] == true){
+								echo '
+									<br>
+									<p style="color:red;">Wrong username or password!</p>
+									';
+							}
+						}
+						echo '
 						<br><br>
-						<input type="submit" value="Login" class="form-button">
-						<br>
-						<p>Not a user? <a href="/login/register">Register here!</a><p>
+						<input type="submit" value="Login" class="form-button"><br>
+						<p>Not a user? <a href="/mattias/login/register">Register here!</a><p>
 					</fieldset>
 				</form>
 			</div>

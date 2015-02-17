@@ -10,7 +10,6 @@ echo '
 		</div>
 	</div>';
 
-
 readfile("html/foot_bar.html");
 readfile("html/body.html");
 readfile("html/foot.html");

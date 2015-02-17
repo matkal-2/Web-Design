@@ -287,3 +287,11 @@ body, html{
 .form-fieldset{
 	max-width: 250px;
 }
+
+.pure-text{
+	text-align: center;
+}
+
+.pure-text p{
+	margin: 10px 10% 10px 10%;
+}

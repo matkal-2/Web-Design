@@ -10,7 +10,7 @@ class Login extends Controller{
 					header( 'Location: /home' ) ;
 				}
 				else{
-					echo 'Did not log in';
+					$this->view('global/login/index', ['color_theme' => 'grey', 'loggin_failed' => true]);
 				}
 			}
 			else{

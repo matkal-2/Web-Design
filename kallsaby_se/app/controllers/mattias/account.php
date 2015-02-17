@@ -33,4 +33,10 @@ class Account extends Controller{
 
 		$this->view('global/account/settings', ['updated'=> $updated, 'user_info' => $user_info, 'color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
 	}
+	public function files(){
+		session_start();
+		$visitor = $this->model('Visitor');
+
+		$this->view('global/account/files', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+	}
 }

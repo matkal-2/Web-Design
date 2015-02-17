@@ -132,7 +132,6 @@ class visitor{
 
 		$user = visitor::getUser($entityManager, $username);
 		if ($user == null) {
-			echo 'user is null';
 		    return false;
 		}
 		else{
@@ -146,7 +145,6 @@ class visitor{
 				return true;
 			}
 			else{
-				echo 'wrong password';
 				return false;
 			}
 		}	

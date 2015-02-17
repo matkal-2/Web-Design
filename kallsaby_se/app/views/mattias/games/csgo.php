@@ -2,7 +2,6 @@
 include("php/head.php");
 readfile("html/menu_bar.html");
 include("php/menu_bar.php");
-
 echo '
 	<div class="body-background">
 		<div class="body-content">
