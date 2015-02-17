@@ -25,7 +25,7 @@ echo '
 						<br><br>
 						<input type="submit" value="Login" class="form-button">
 						<br>
-						<p>Not a user? <a href="/kallsaby_se/public/login/register">Register here!</a><p>
+						<p>Not a user? <a href="/login/register">Register here!</a><p>
 					</fieldset>
 				</form>
 			</div>

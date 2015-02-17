@@ -1,24 +1,24 @@
 <?php
 
-class login extends Controller{
+class Login extends Controller{
 	public function index(){
 		session_start();
 		$visitor = $this->model('Visitor');
 		if(!$visitor->isLoggedIn()){
 			if(isset($_REQUEST['login_username'])){
 				if($visitor->login($this->getManager())){
-					header( 'Location: /kallsaby_se/public/home' ) ;
+					header( 'Location: /home' ) ;
 				}
 				else{
 					echo 'Did not log in';
 				}
 			}
 			else{
-				$this->view('login/index', ['color_theme' => 'grey']);
+				$this->view('global/login/index', ['color_theme' => 'grey']);
 			}
 		}
 		else{
-			header( 'Location: /kallsaby_se/public/home' ) ;
+			header( 'Location: /home' ) ;
 		}
 	}
 
@@ -31,10 +31,10 @@ class login extends Controller{
 				if(true){
 					echo 'data not set';
 					if($visitor->register($this->getManager())){
-						header( 'Location: /kallsaby_se/public/login/register/register_done' ) ;
+						header( 'Location: /login/register/register_done' ) ;
 					}
 					else{
-						header( 'Location: /kallsaby_se/public/login/register/register_failed' ) ;
+						header( 'Location: /login/register/register_failed' ) ;
 					}
 				}
 			}
@@ -42,29 +42,29 @@ class login extends Controller{
 				if(isset($data)){
 					if($data == "register_done"){
 						$registerd = true;
-						header( 'Location: /kallsaby_se/public/login/index' ) ;
+						header( 'Location: /login/index' ) ;
 
 					}
 					else if($data == "register_failed"){
 
 						$registerd = false;
-						$this->view('login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
+						$this->view('global/login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
 					}
 					else{
 						$registerd = true;
-						$this->view('login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
+						$this->view('global/login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
 					}
 					
 				}
 				else{
 					$registerd = true;
-					$this->view('login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
+					$this->view('global/login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
 				}
 				
 			}
 		}
 		else{
-			header( 'Location: /kallsaby_se/public/home/index' ) ;
+			header( 'Location: /home/index' ) ;
 		}
 	}
 

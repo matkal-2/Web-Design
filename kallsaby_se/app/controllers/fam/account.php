@@ -1,6 +1,6 @@
 <?php 
 
-class Account extends Controller{
+class Account_ extends Controller{
 	public function index(){
 		session_start();
 		$visitor = $this->model('Visitor');
@@ -8,7 +8,7 @@ class Account extends Controller{
 			$user_info = $visitor->information($this->getManager());
 		}
 		else{
-			header( 'Location: /kallsaby_se/public/home' ) ;
+			header( 'Location: /home' ) ;
 		}
 		
 		$this->view('account/index', ['user_info' => $user_info, 'color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
@@ -28,7 +28,7 @@ class Account extends Controller{
 			$user_info = $visitor->information($this->getManager());
 		}
 		else{
-			header( 'Location: /kallsaby_se/public/home' ) ;
+			header( 'Location: /home' ) ;
 		}
 
 		$this->view('account/settings', ['updated'=> $updated, 'user_info' => $user_info, 'color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
