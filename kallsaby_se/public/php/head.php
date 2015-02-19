@@ -21,8 +21,8 @@ switch($data['color_theme']){
 		';
 		break;
 	case 'grey':
-		echo '<link rel="stylesheet" href="/css/main.css">
-		<link rel="stylesheet" href="/css/grey.css">
+		echo '<link rel="stylesheet" href="/css/main.css" >
+		<link rel="stylesheet" href="/css/grey.css" media="only">
 		';
 		break;
 }
