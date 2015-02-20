@@ -1,36 +1,88 @@
 <?php
+if(isset($data['videos']) && isset($data['amount'])){
+	$videos = $data['videos'];
+	$amount = $data['amount'];
+}
+if(isset($_GET['p'])){
+	if($_GET['p']<1){
+		$down = 0;
+		$up = 1;
+	}
+	else{
+		$down = $_GET['p']-1;
+		$up = $_GET['p']+1;
+	}
+	
+}
+else{
+	$down = 0;
+	$up = 1;
+}
+
+
 include("php/head.php");
 readfile("html/menu_bar.html");
 include("php/menu_bar.php");
 echo '
 	<div class="body-background">
 		<div class="body-content">
-			<section id="side">
-		        <div id="wiki"></div>
-		    </section>
-		 
-		    <section id="main">
-		        <video id="demo_video" style="max-width:90%;"controls autobuffer>
-		            <source src="file:///c:/Users/Mattias/Videos/Movies/loveactually.mkv">
-		        </video>
-		        <section id="tags"></section>
-		    </section>
-		    <section id="main2">
-		        <video id="demo_video2" controls autobuffer>
-		            <source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.mp4">
-          			<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.ogv">
-          			<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.webm">
-		        </video>
-		        <section id="tags"></section>
-		    </section>
-		 
-		    
+			<div class="video-browser">
+				<div class="search-menu">
+					<div class="holder-bar">
+						<form method="POST" id="search-form">
+							<fieldset class="form-fieldset">
+								<legend>
+									Video Search
+								</legend>
+								<div class="search-field">
+									<input type="text" name="search" id="search" placeholder="Search">
+								</div>
+								<br>
+								<input type="submit" name="search-form" value="Search" class="form-button">							
+							</fieldset>
+						</form>
+						<br>
+						<form  method="post" enctype="multipart/form-data">
+							<fieldset class="form-fieldset">
+								<legend>
+									Upload Video
+								</legend>
+								<div class="search-field">
+									<input type="name" name="filename" id="filename" placeholder="Video Name">
+								</div>
+								<br>
+								<input type="file" name="file" id="file"> 
+								<br>
+								<br>
+								<input type="submit" name="submit" value="Submit" class="form-button" />
+							</fieldset>
+						</form>
+					</div>
+				</div>
+				<div class="result-box">
+					<div id="result-head" class="result-head"></div>';
+					if(isset($videos)&& isset($amount)){
+
+						for ($i=0; $i<$amount; $i++){							
+							echo '
+								<div class="result-video">
+									<a href="/mattias/videos/player/public/'.$videos[$i][1].'">'.$videos[$i][0].'</a>
+								</div>';
+						}
+					}					
+					echo '
+					<div class="page-buttons">
+						<form method="GET">
+							<input value="'.$down.'" type="submit" name="p">
+							<input value="'.$up.'" type="submit" name="p">
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>';
 
 
 readfile("html/foot_bar.html");
-echo '
-	<script src="js/popcorn.js"></script>
-	<script src="js/script.js"></script>';
+echo '<script src="/js/pages.js"></script>';
 readfile("html/foot.html");

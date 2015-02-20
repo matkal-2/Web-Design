@@ -6,13 +6,12 @@
 class Mgenere
 {   
     /**
-     * @OneToOne(targetEntity="Movie")
+     * @ManyToOne(targetEntity="Movie")
      * @JoinColumn(name="movie_id", referencedColumnName="id")
      **/
     private $movie;
      /** 
-     * @Id @Column(type="integer") 
-     * @GeneratedValue 
+     * @Id @Column(type="integer")
      * @var int
      */
     protected $movie_id;

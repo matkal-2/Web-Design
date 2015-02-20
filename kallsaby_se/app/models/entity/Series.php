@@ -15,12 +15,17 @@ class Series
     * @Column(type="string") 
     * @var string
     */
-    protected $seriesname;
+    protected $name;
     /** 
     * @Column(type="string") 
     * @var string
     */
     protected $seriespath;
+    /** 
+    * @Column(type="string") 
+    * @var string
+    */
+    protected $privacy;
     
 
 
@@ -31,12 +36,12 @@ class Series
 
     public function getSeriesname()
     {
-        return $this->seriesname;
+        return $this->name;
     }
 
-    public function setSeriesname($seriesname)
+    public function setSeriesname($name)
     {
-        $this->seriesname = $seriesname;
+        $this->name = $name;
     }
 
     public function getSeriespath()
@@ -47,5 +52,14 @@ class Series
     public function setSeriespath($seriespath)
     {
         $this->seriespath = $seriespath;
+    }
+    public function getPrivacy()
+    {
+        return $this->privacy;
+    }
+
+    public function setPrivacy($privacy)
+    {
+        $this->privacy = $privacy;
     }
 }

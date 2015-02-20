@@ -15,12 +15,17 @@ class Video
     * @Column(type="string") 
     * @var string
     */
-    protected $videoname;
+    protected $name;
     /** 
     * @Column(type="string") 
     * @var string
     */
     protected $videopath;
+    /** 
+    * @Column(type="string") 
+    * @var string
+    */
+    protected $privacy;
     
 
 
@@ -31,12 +36,12 @@ class Video
 
     public function getVideoname()
     {
-        return $this->videoname;
+        return $this->name;
     }
 
-    public function setVideoname($videoname)
+    public function setVideoname($name)
     {
-        $this->videoname = $videoname;
+        $this->name = $name;
     }
 
     public function getVideopath()
@@ -47,5 +52,14 @@ class Video
     public function setVideopath($videopath)
     {
         $this->videopath = $videopath;
+    }
+    public function getPrivacy()
+    {
+        return $this->privacy;
+    }
+
+    public function setPrivacy($privacy)
+    {
+        $this->privacy = $privacy;
     }
 }

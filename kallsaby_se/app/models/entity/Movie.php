@@ -15,12 +15,17 @@ class Movie
     * @Column(type="string") 
     * @var string
     */
-    protected $moviename;
+    protected $name;
     /** 
     * @Column(type="string") 
     * @var string
     */
     protected $moviepath;
+    /** 
+    * @Column(type="string") 
+    * @var string
+    */
+    protected $privacy;
     
 
 
@@ -31,12 +36,12 @@ class Movie
 
     public function getMoviename()
     {
-        return $this->moviename;
+        return $this->name;
     }
 
-    public function setMoviename($moviename)
+    public function setMoviename($name)
     {
-        $this->moviename = $moviename;
+        $this->name = $name;
     }
 
     public function getMoviepath()
@@ -47,5 +52,14 @@ class Movie
     public function setMoviepath($moviepath)
     {
         $this->moviepath = $moviepath;
+    }
+    public function getPrivacy()
+    {
+        return $this->privacy;
+    }
+
+    public function setPrivacy($privacy)
+    {
+        $this->privacy = $privacy;
     }
 }
