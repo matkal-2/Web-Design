@@ -37,7 +37,7 @@ class Login extends Controller{
 					$this->view('global/login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
 				}				
 			}							
-			else if(isset($_REQUEST['register_username'])){				
+			if(isset($_REQUEST['register_username'])){				
 				if($visitor->register($this->getManager())){
 					header( 'Location: /mattias/login/register/register_done' ) ;
 				}
