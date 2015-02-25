@@ -7,16 +7,20 @@ class videohandler{
 		require_once 'entity/' . $videotype . '.php';
 		$records = $entityManager->getRepository("Video")->findBy(array(),array(),10,10*$page);
 		$this->amount = count($records);
+		$vidsamount = $this->amount;
 		$vids;
 		if($this->amount == 0){
 			return null;
 		}
-		for($i=0; $i<$this->amount;$i++){
+		$arraypos = 0;
+		for($i=0; $i<$vidsamount;$i++){
 			if($records[$i]->getPrivacy() == 'private' && $role < 4){
-				$vids[$i]=array($records[$i]->getVideoName(), $records[$i]->getId());
+				$vids[$arraypos] = array($records[$i]->getVideoName(), $records[$i]->getId());
+				$arraypos ++;
 			}
 			else if($records[$i]->getPrivacy() == 'public'){
-				$vids[$i]=array($records[$i]->getVideoName(), $records[$i]->getId());
+				$vids[$arraypos] = array($records[$i]->getVideoName(), $records[$i]->getId());
+				$arraypos ++;
 			}
 			else{
 				$this->amount -= 1;
