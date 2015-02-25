@@ -28,17 +28,16 @@ echo '
 						</div>
 						<br><br>
 						<input type="submit" value="Register" class="form-button">
+						';
+						if(!$data['registerd']){
+							echo '<p class="warning_text">Could not register that user</p>';
+						}echo '							
 					</fieldset>
 				</form>
 			</div>
 		</div>
 	</div>
 	';
-	if(!$data['registerd']){
-		echo '
-		<p class="warning_text">Could not register that user</p>
-		';
-	}
 
 
 echo '</div>';

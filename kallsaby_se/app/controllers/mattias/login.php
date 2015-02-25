@@ -25,42 +25,29 @@ class Login extends Controller{
 	public function register($data=[]){
 		session_start();
 		$visitor = $this->model('Visitor');
-		if(!$visitor->isLoggedIn()){
-			if(isset($_REQUEST['register_username'])){
-				echo 'post is set';
-				if(true){
-					echo 'data not set';
-					if($visitor->register($this->getManager())){
-						header( 'Location: /mattias/login/register/register_done' ) ;
-					}
-					else{
-						header( 'Location: /mattias/login/register/register_failed' ) ;
-					}
+		if(!$visitor->isLoggedIn()){			
+			if(isset($data)){
+				if($data == "register_done"){
+					$registerd = true;
+					header( 'Location: /mattias/login/index' ) ;
+
 				}
-			}
-			else{
-				if(isset($data)){
-					if($data == "register_done"){
-						$registerd = true;
-						header( 'Location: /mattias/login/index' ) ;
-
-					}
-					else if($data == "register_failed"){
-
-						$registerd = false;
-						$this->view('global/login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
-					}
-					else{
-						$registerd = true;
-						$this->view('global/login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
-					}
-					
+				else if($data == "register_failed"){
+					$registerd = false;
+					$this->view('global/login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
+				}				
+			}							
+			else if(isset($_REQUEST['register_username'])){				
+				if($visitor->register($this->getManager())){
+					header( 'Location: /mattias/login/register/register_done' ) ;
 				}
 				else{
-					$registerd = true;
-					$this->view('global/login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
-				}
-				
+					header( 'Location: /mattias/login/register/register_failed' ) ;
+				}				
+			}
+			else{
+				$registerd = true;
+				$this->view('global/login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
 			}
 		}
 		else{
