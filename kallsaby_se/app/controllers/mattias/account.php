@@ -8,7 +8,7 @@ class Account extends Controller{
 			$user_info = $visitor->information($this->getManager());
 		}
 		else{
-			header( 'Location: /home' ) ;
+			header( 'Location: /mattias/home' ) ;
 		}
 		
 		$this->view('global/account/index', ['user_info' => $user_info, 'color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
@@ -28,7 +28,7 @@ class Account extends Controller{
 			$user_info = $visitor->information($this->getManager());
 		}
 		else{
-			header( 'Location: /home' ) ;
+			header( 'Location: /mattias/home' ) ;
 		}
 
 		$this->view('global/account/settings', ['updated'=> $updated, 'user_info' => $user_info, 'color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);

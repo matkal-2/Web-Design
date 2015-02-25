@@ -7,7 +7,7 @@ class Login_ extends Controller{
 		if(!$visitor->isLoggedIn()){
 			if(isset($_REQUEST['login_username'])){
 				if($visitor->login($this->getManager())){
-					header( 'Location: /home' ) ;
+					header( 'Location: /mattias/home' ) ;
 				}
 				else{
 					echo 'Did not log in';
@@ -18,7 +18,7 @@ class Login_ extends Controller{
 			}
 		}
 		else{
-			header( 'Location: /home' ) ;
+			header( 'Location: /mattias/home' ) ;
 		}
 	}
 
@@ -31,10 +31,10 @@ class Login_ extends Controller{
 				if(true){
 					echo 'data not set';
 					if($visitor->register($this->getManager())){
-						header( 'Location: /login/register/register_done' ) ;
+						header( 'Location: /mattias/login/register/register_done' ) ;
 					}
 					else{
-						header( 'Location: /login/register/register_failed' ) ;
+						header( 'Location: /mattias/login/register/register_failed' ) ;
 					}
 				}
 			}
@@ -42,7 +42,7 @@ class Login_ extends Controller{
 				if(isset($data)){
 					if($data == "register_done"){
 						$registerd = true;
-						header( 'Location: /login/index' ) ;
+						header( 'Location: /mattias/login/index' ) ;
 
 					}
 					else if($data == "register_failed"){
@@ -64,7 +64,7 @@ class Login_ extends Controller{
 			}
 		}
 		else{
-			header( 'Location: /home/index' ) ;
+			header( 'Location: /mattias/home/index' ) ;
 		}
 	}
 
