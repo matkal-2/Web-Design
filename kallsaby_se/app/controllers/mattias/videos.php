@@ -25,15 +25,24 @@ class Videos extends Controller{
 		session_start();
 		echo ' in other; ';
 		$visitor = $this->model('Visitor');
+		echo ' before make video; ';
 		$videos = $this->model('videohandler');
+		echo ' before is logged in; ';
 		if($visitor->isLoggedIn()){
+			echo ' before role from session; ';
 			$role = $_SESSION['role'];
+			echo ' after role from session; ';
 		}
 		else{
+			echo ' before role from 10; ';
 			$role = 10;
+			echo ' after role from 10; ';
 		}
+		echo ' before Video upload files test; ';
 		if(isset($_FILES['file'])){
+			echo ' before Video upload; ';
 			$videos->uploadVideo($this->getManager(),'public','Video');
+			echo ' after Video upload; ';
 		}
 		echo ' in before search; ';
 		if(isset($_REQUEST['search'])){
