@@ -26,7 +26,7 @@ class Videos extends Controller{
 		echo ' in other; ';
 		$visitor = $this->model('Visitor');
 		echo ' before make video; ';
-		$videos = $this->model('videohandler');
+		$videos = $this->model('Videohandler');
 		echo ' before is logged in; ';
 		if($visitor->isLoggedIn()){
 			echo ' before role from session; ';
