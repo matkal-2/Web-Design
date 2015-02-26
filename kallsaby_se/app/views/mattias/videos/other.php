@@ -28,6 +28,7 @@ echo '
 		<div class="body-content">
 			<div class="video-browser">
 				<div class="search-menu">
+					<div id="result-head" class="menu-head"></div>
 					<div class="holder-bar">
 						<form method="POST" id="search-form">
 							<fieldset class="form-fieldset">

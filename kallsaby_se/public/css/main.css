@@ -323,7 +323,7 @@ body, html{
 	display: inline-block;
 	padding: 3%;
 	width: 94%;
-	text-align: center;
+	text-align: center;	
 
 }
 
@@ -334,7 +334,10 @@ body, html{
 	margin:0 1% 0 0%;
 	max-width:24%;
 	height:600px;
-	background-color:#bbb;
+	background-color:#888;
+	padding:5px;
+	-webkit-box-shadow: inset 1px 0px 2px #666, -1px 0px 2px #666, 0px 1px 2px #666, 0px -1px 2px #666;
+    box-shadow: inset 1px 0px 2px #666, -1px 0px 2px #666, 0px 1px 2px #666, 0px -1px 2px #666;
 }
 
 .result-box{
@@ -344,7 +347,10 @@ body, html{
 	margin:0 0% 0 1%;
 	min-width:74%;
 	min-height: 600px;
-	background-color: blue;
+	background-color: #777;
+	padding:5px;
+	-webkit-box-shadow: inset 1px 0px 2px #666, -1px 0px 2px #666, 0px 1px 2px #666, 0px -1px 2px #666;
+    box-shadow: inset 1px 0px 2px #666, -1px 0px 2px #666, 0px 1px 2px #666, 0px -1px 2px #666;
 }
 
 .result-head{
@@ -354,14 +360,18 @@ body, html{
 	height:60px;
 	width:80%;
 	margin: 20px auto 5px auto;
-	background-color:orange;
+	background-color:#bbb;
+	-webkit-box-shadow: 1px 0px 2px #666, -1px 0px 2px #666, 0px 1px 2px #666, 0px -1px 2px #666;
+    box-shadow: 1px 0px 2px #666, -1px 0px 2px #666, 0px 1px 2px #666, 0px -1px 2px #666;	
 }
 
 .result-video{
 	width:80%;
 	height:120px;
 	margin: 5px auto 5px auto;
-	background-color:purple;
+	background-color:#ccc;
+	-webkit-box-shadow: 1px 0px 2px #666, -1px 0px 2px #666, 0px 1px 2px #666, 0px -1px 2px #666;
+    box-shadow: 1px 0px 2px #666, -1px 0px 2px #666, 0px 1px 2px #666, 0px -1px 2px #666;
 }
 
 .search-field input, textarea, select, a { outline: none; }
