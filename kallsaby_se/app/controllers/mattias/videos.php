@@ -35,7 +35,7 @@ class Videos extends Controller{
 		if(isset($_FILES['file'])){
 			$videos->uploadVideo($this->getManager(),'public','Video');
 		}
-
+		echo ' in before search; ';
 		if(isset($_REQUEST['search'])){
 			echo ' in search; ';
 			$v = $videos->getSearchVideo($this->getManager(), $_REQUEST['search'], 'Video', $role, 10);
@@ -48,19 +48,23 @@ class Videos extends Controller{
 			}
 		}
 		else{
+			echo ' in not search; ';
 			if(isset($_GET['p'])){
 				echo ' in GET p; ';
 				$v = $videos->getLatestVideo($this->getManager(), 'Video', $_GET['p'], $role);			
 				$amount = $videos->amount;
 			}
 			else{
+				echo ' in not GET p; ';
 				$v = $videos->getLatestVideo($this->getManager(), 'Video', 0, $role);			
 				$amount = $videos->amount;
 			}
 			if($amount >0){
+				echo ' in amount > 0; ';
 				$this->view('mattias/videos/other', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
 			}
 			else{
+				echo ' in amount =< 0; ';
 				$this->view('mattias/videos/other', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
 			}
 
