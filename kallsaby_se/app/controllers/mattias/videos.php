@@ -30,10 +30,7 @@ class Videos extends Controller{
 		}
 		else{
 			$role = 10;
-		}
-		if(isset($_FILES['file'])){
-			$videos->uploadVideo($this->getManager(),'public','Video');
-		}
+		}		
 		if(isset($_REQUEST['search'])){
 			$v = $videos->getSearchVideo($this->getManager(), $_REQUEST['search'], 'Video', $role, 10);
 			$amount = $videos->amount;
@@ -59,15 +56,39 @@ class Videos extends Controller{
 			else{
 				$this->view('mattias/videos/other', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
 			}
-
-		}
-		
-		
+		}		
 	}
 
-	public function player($privacy, $video){
+	public function upload(){
 		session_start();
+		$visitor = $this->model('Visitor');
+		$videos = $this->model('Videohandler');
+		if($visitor->isLoggedIn()){
+			$role = $_SESSION['role'];
+		}
+		else{
+			$role = 10;
+		}
+		if($role < 6){
+			if(isset($_FILES['file'])){				
+				if($videos->uploadVideo($this->getManager(),'public','Video')){
+					$this->view('mattias/videos/upload', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'uploaded' => $videos->status]);
+				}
+				else{
+					$this->view('mattias/videos/upload', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'uploaded' => $videos->error]);
+				}
+			}
+			else{
+				$this->view('mattias/videos/upload', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+			}			
+		}
+		else{
+			header( 'Location: /mattias/videos/other' );
+		}
+	}
 
+	public function player($privacy = '', $video = ''){
+		session_start();
 		$visitor = $this->model('Visitor');
 		$videos = $this->model('videohandler');
 		if($visitor->isLoggedIn()){

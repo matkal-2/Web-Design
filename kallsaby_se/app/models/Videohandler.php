@@ -2,6 +2,8 @@
 
 class videohandler{
 	public $amount;
+	public $error;
+	public $status;
 	
 	public function getLatestVideo($entityManager, $videotype, $page, $role){
 		require_once 'entity/' . $videotype . '.php';
@@ -104,40 +106,37 @@ class videohandler{
 
 			if ($_FILES["file"]["error"] > 0)
 			    {
-			    echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
+			    $this->error =  "Return Code: " . $_FILES["file"]["error"] . "<br />";
+			    return false;
 			    }
 			else{
-			    echo "Upload: " . $_FILES["file"]["name"] . "<br />";
-			    echo "Type: " . $_FILES["file"]["type"] . "<br />";
-			    echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
-			    echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
-			    $notsaved = true;
+				$this->status ="Upload: " . $_FILES["file"]["name"] . "<br />Type: " . $_FILES["file"]["type"] . "<br />Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
 			    $i=-1;
-			    while($notsaved){
+			    while(true){
 			    	if($i==-1){
 			    		if (file_exists($path . $filename . '.'.$extension)){
-					    	echo $filename . '.'.$extension . " already exists. <br>";
+					    	$this->error = $filename . '.'.$extension . " already exists. <br>";
 					    	$i = 0;
 					    }
 					    else{
 					    	move_uploaded_file($_FILES["file"]["tmp_name"],
 					    	$path . $filename . '.'.$extension);
-					    	echo "Stored in: " . $path . $filename . '.'.$extension;
+					    	$this->status = $this->status."<br />Stored in: " . $path . $filename . '.'.$extension;
 					    	$this->insertVideo($entityManager, $privacy, $videotype, $filename.'.'.$extension, $filename);
-					    	$notsaved = false;
+					    	return true;
 					    }
 			    	}
 			    	else{
 			    		if (file_exists($path . $filename.'('.$i.')' . '.'.$extension)){
-					    	echo $filename.'('.$i.')' . '.'.$extension . " already exists. <br>";
+					    	$this->error = $filename.'('.$i.')' . '.'.$extension . " already exists. <br>";
 					    	$i += 1;
 					    }
 					    else{
 					    	move_uploaded_file($_FILES["file"]["tmp_name"],
 					    	$path . $filename.'('.$i.')' . '.'.$extension);
-					    	echo "Stored in: " . $path . $filename.'('.$i.')' . '.'.$extension;
+					    	$this->status = $this->status."<br />Stored in: " . $path . $filename.'('.$i.')' . '.'.$extension;
 					    	$this->insertVideo($entityManager, $privacy, $videotype, $filename.'('.$i.')'.'.'.$extension, $filename);
-					    	$notsaved = false;
+					    	return true;
 					    }
 			    	}
 			    	
@@ -146,7 +145,8 @@ class videohandler{
 			}
 		}
 		else{
-			echo "Invalid file";
+			$this->error = "Invalid file";
+			return false;
 		}
 	}
 

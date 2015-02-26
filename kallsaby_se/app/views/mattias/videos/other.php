@@ -42,21 +42,7 @@ echo '
 							</fieldset>
 						</form>
 						<br>
-						<form  method="post" enctype="multipart/form-data">
-							<fieldset class="form-fieldset">
-								<legend>
-									Upload Video
-								</legend>
-								<div class="search-field">
-									<input type="name" name="filename" id="filename" placeholder="Video Name">
-								</div>
-								<br>
-								<input type="file" name="file" id="file"> 
-								<br>
-								<br>
-								<input type="submit" name="submit" value="Submit" class="form-button" />
-							</fieldset>
-						</form>
+						<a href="/mattias/videos/upload" class="anchor-button">Upload File</a>
 					</div>
 				</div>
 				<div class="result-box">
@@ -84,5 +70,4 @@ echo '
 
 
 readfile("html/foot_bar.html");
-echo '<script src="/js/pages.js"></script>';
 readfile("html/foot.html");
