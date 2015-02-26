@@ -10,7 +10,7 @@ $isDevMode = true;
 $dbParams = array(
     'driver'   => 'pdo_mysql',
     'user'     => 'root',
-    'password' => '',
+    'password' => 'abcd1234',
     'dbname'   => 'kallsabydb',
 );
 
