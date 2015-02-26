@@ -23,6 +23,7 @@ class Videos extends Controller{
 
 	public function other(){
 		session_start();
+		echo ' in other; ';
 		$visitor = $this->model('Visitor');
 		$videos = $this->model('videohandler');
 		if($visitor->isLoggedIn()){
@@ -36,6 +37,7 @@ class Videos extends Controller{
 		}
 
 		if(isset($_REQUEST['search'])){
+			echo ' in search; ';
 			$v = $videos->getSearchVideo($this->getManager(), $_REQUEST['search'], 'Video', $role, 10);
 			$amount = $videos->amount;
 			if($amount >0){
@@ -47,6 +49,7 @@ class Videos extends Controller{
 		}
 		else{
 			if(isset($_GET['p'])){
+				echo ' in GET p; ';
 				$v = $videos->getLatestVideo($this->getManager(), 'Video', $_GET['p'], $role);			
 				$amount = $videos->amount;
 			}
@@ -62,6 +65,7 @@ class Videos extends Controller{
 			}
 
 		}
+		echo ' in end of other; ';
 		
 		
 	}
