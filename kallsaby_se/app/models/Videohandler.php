@@ -74,32 +74,44 @@ class videohandler{
 		return $vids;
 	}
 
-	public function getVideopath($entityManager, $privacy, $video, $videotype, $role){
-		
+	public function getVideopath($entityManager, $video, $videotype, $role){
+		require_once 'entity/' . $videotype . '.php';
+		require_once 'entity/User.php';
+		$records = $entityManager->find($videotype, $video);
+		if($records == false){
+			return null;
+		}
+		$privacy = $records->getPrivacy();		
+		$path = '/resources/vid/'.$privacy.'/'.$videotype.'/'.$records->getVideopath();
 		if($privacy == 'private'){
 			if($role < 4){
-				require_once 'entity/' . $videotype . '.php';
-				require_once 'entity/User.php';
-				$records = $entityManager->find($videotype, $video);
-				$path = '/resources/vid/'.$privacy.'/'.$videotype.'/'.$records->getVideopath();
 				return $path;
 			}
-		}else if($privacy == 'public'){
-			require_once 'entity/' . $videotype . '.php';
-			require_once 'entity/User.php';
-			$records = $entityManager->find($videotype, $video);
-			$path = '/resources/vid/'.$privacy.'/'.$videotype.'/'.$records->getVideopath();
-			return $path;
+			else{
+				return null;
+			}
 		}
-		
+		return $path;
+	}
+
+	public function removeVideo($entityManager, $video, $videotype){
+		$records = $entityManager->find($videotype, $video);
+		if($records == false){
+			return null;
+		}
+		$privacy = $records->getPrivacy();		
+		$path = '/resources/vid/'.$privacy.'/'.$videotype.'/'.$records->getVideopath();
+		if(file_exists($path)){
+
+		}
 	}
 
 	public function uploadVideo($entityManager, $privacy, $videotype){
 		$allowedExts = array("mp4");
 		$extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
-		$path = 'D:/Documents/GitHub/Web-Design/kallsaby_se/public/resources/vid/'.$privacy.'/'.$videotype.'/';
+		$path = getenv("DOCUMENT_ROOT").'/resources/vid/'.$privacy.'/'.$videotype.'/';
+		echo $path;
 		$filename = $_REQUEST['filename'];
-
 		if ((($_FILES["file"]["type"] == "video/mp4")
 		|| ($_FILES["file"]["type"] == "audio/mp3")
 		|| ($_FILES["file"]["type"] == "audio/wma")

@@ -61,7 +61,7 @@ echo '
 						for ($i=0; $i<$amount; $i++){							
 							echo '
 								<div class="result-video">
-									<a href="/mattias/videos/player/public/'.$videos[$i][1].'">'.$videos[$i][0].'</a>
+									<a href="/mattias/videos/player/'.$videos[$i][1].'">'.$videos[$i][0].'</a>
 								</div>';
 						}
 					}					

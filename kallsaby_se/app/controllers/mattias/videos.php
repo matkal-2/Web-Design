@@ -87,7 +87,7 @@ class Videos extends Controller{
 		}
 	}
 
-	public function player($privacy = '', $video = ''){
+	public function player($video = ''){
 		session_start();
 		$visitor = $this->model('Visitor');
 		$videos = $this->model('Videohandler');
@@ -97,8 +97,8 @@ class Videos extends Controller{
 		else{
 			$role = 10;
 		}
-		if(isset($privacy) && isset($video)){
-			$path = $videos->getVideopath($this->getManager(), $privacy, $video, 'Video', $role);
+		if(isset($video)){
+			$path = $videos->getVideopath($this->getManager(), $video, 'Video', $role);
 			if($path != null){
 				$this->view('mattias/videos/player', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'path' => $path]);
 			}
@@ -106,5 +106,13 @@ class Videos extends Controller{
 				header( 'Location: /mattias/videos/other' ) ;
 			}
 		}
+	}
+
+
+	public function removevid($video = ''){
+		session_start();
+		$visitor = $this->model('Visitor');
+		$videos = $this->model('Videohandler');
+		$videos->removevideo($this->getManager(), $video, 'Video');
 	}
 }
