@@ -92,7 +92,7 @@ class Videos extends Controller{
 		echo 'heyo';
 		$visitor = $this->model('Visitor');
 		echo 'heyo 5';
-		$videos = $this->model('videohandler');
+		$videos = $this->model('Videohandler');
 		echo 'heyo 4';
 		if($visitor->isLoggedIn()){
 			$role = $_SESSION['role'];
