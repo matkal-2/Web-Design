@@ -5,14 +5,25 @@
  **/
 class Series
 {
+    /**
+     * @ManyToOne(targetEntity="User")
+     * @JoinColumn(name="user_id", referencedColumnName="id")
+     **/
+    private $user;
      /** 
-     * @Id @Column(type="integer") 
+     * @Column(type="integer") 
+     * @GeneratedValue 
+     * @var int
+     */
+    protected $user_id;
+     /** 
+     * @Column(type="integer") 
      * @GeneratedValue 
      * @var int
      */
     protected $id;
     /** 
-    * @Column(type="string") 
+    * @Id @Column(type="string") 
     * @var string
     */
     protected $name;
@@ -26,6 +37,7 @@ class Series
     * @var string
     */
     protected $privacy;
+    
     
 
 
@@ -61,5 +73,16 @@ class Series
     public function setPrivacy($privacy)
     {
         $this->privacy = $privacy;
+    }
+    public function setUser(User $user){
+        $this->user = $user;
+    }
+    public function getUserid()
+    {
+        return $this->user_id;
+    }
+    public function setUserid($user_id)
+    {
+        $this->user_id = $user_id;
     }
 }

@@ -8,16 +8,16 @@ include("php/menu_bar.php");
 echo '
 	<div class="body-background">
 		<div class="body-content">
-			<section id="side">
-		        <div id="wiki"></div>
-		    </section>
-		 
-		    <section id="main">
-		        <video id="demo_video" style="max-width:90%;"controls autobuffer>
-		            <source src="'.$path.'">
-		        </video>
-		        <section id="tags"></section>
-		    </section>		    
+		<div class="body-center-container">		
+				<div class="holder-bar">		 
+				    <section id="main">
+				        <video id="demo_video" style="max-width:90%;"controls autobuffer>
+				            <source src="'.$path.'">
+				        </video>
+				        <section id="tags"></section>
+				    </section>		
+				</div>
+			</div>    
 		</div>
 	</div>';
 

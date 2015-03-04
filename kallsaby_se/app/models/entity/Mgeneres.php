@@ -17,6 +17,7 @@ class Mgenere
     protected $movie_id;
     /** 
     * @Id @Column(type="string")
+    * @GeneratedValue 
     * @var string
     */
     protected $mgenere;

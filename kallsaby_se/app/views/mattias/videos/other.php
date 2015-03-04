@@ -41,9 +41,17 @@ echo '
 								<br>
 								<input type="submit" name="search-form" value="Search" class="form-button">							
 							</fieldset>
-						</form>
-						<br>
-						<a href="/mattias/videos/upload" class="anchor-button">Upload File</a>
+						</form>';
+						if($data['logged_in']){
+							if($_SESSION['role'] < 6){
+								echo '
+								<br>
+								<a href="/mattias/videos/upload" class="anchor-button">Upload File</a>
+							';
+							}
+							
+						}
+						echo '						
 					</div>
 				</div>
 				<div class="result-box">

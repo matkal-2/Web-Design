@@ -26,7 +26,7 @@ else{
 				<div class="nav-content">
 					<div class="nav-sub">
 						<ul>
-							<li><a href="/mattias/login">Logg In or Register</a></li>
+							<li><a href="/mattias/login">Log In or Register</a></li>
 						</ul>
 					</div>
 				</div>
