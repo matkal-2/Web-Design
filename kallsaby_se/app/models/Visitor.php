@@ -117,9 +117,11 @@ class visitor{
 		}
 		catch(PDOException $e){
 			$added_user = false;
+			echo $e->getMessage();
 		}
 		catch(Exception $e){
 			$added_user = false;
+			echo $e->getMessage();
 		}
 		
 		return $added_user;
