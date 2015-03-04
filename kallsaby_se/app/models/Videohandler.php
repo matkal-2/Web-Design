@@ -121,7 +121,6 @@ class videohandler{
 		$allowedExts = array("mp4");
 		$extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
 		$path = getenv("DOCUMENT_ROOT").'/resources/vid/'.$privacy.'/'.$videotype.'/';
-		echo $path;
 		$filename = $_REQUEST['filename'];
 		if ((($_FILES["file"]["type"] == "video/mp4")
 		|| ($_FILES["file"]["type"] == "audio/mp3")
@@ -149,11 +148,12 @@ class videohandler{
 					    	$u=move_uploaded_file($_FILES["file"]["tmp_name"],
 					    	$path . $filename . '.'.$extension);
 					    	if($u){
-					    		echo 'yep';
-					    	}
-					    	$this->status = $this->status."<br />Stored in: " . $path . $filename . '.'.$extension;
-					    	$this->insertVideo($entityManager, $privacy, $videotype, $filename.'.'.$extension, $filename);
-					    	return true;
+					    		$this->status = $this->status."<br />Stored in: " . $path . $filename . '.'.$extension;
+						    	$this->insertVideo($entityManager, $privacy, $videotype, $filename.'.'.$extension, $filename);
+						    	return true;
+					    	}else{
+					    		return false;
+					    	}    	
 					    }
 			    	}
 			    	else{
@@ -165,11 +165,13 @@ class videohandler{
 					    	$u=move_uploaded_file($_FILES["file"]["tmp_name"],
 					    	$path . $filename.'('.$i.')' . '.'.$extension);
 					    	if($u){
-					    		echo 'yep';
+					    		$this->status = $this->status."<br />Stored in: " . $path . $filename.'('.$i.')' . '.'.$extension;
+						    	$this->insertVideo($entityManager, $privacy, $videotype, $filename.'('.$i.')'.'.'.$extension, $filename);
+						    	return true;
 					    	}
-					    	$this->status = $this->status."<br />Stored in: " . $path . $filename.'('.$i.')' . '.'.$extension;
-					    	$this->insertVideo($entityManager, $privacy, $videotype, $filename.'('.$i.')'.'.'.$extension, $filename);
-					    	return true;
+					    	else{
+					    		return false;
+					    	}
 					    }
 			    	}
 			    	
