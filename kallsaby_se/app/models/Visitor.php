@@ -90,7 +90,7 @@ class visitor{
 	public function register($entityManager){
 		require_once 'entity/User.php';
 		require_once 'entity/Userdetails.php';
-
+		echo 'heyo';
 		$username = $_REQUEST['register_username'];
 		$email = $_REQUEST['register_email'];
 		$password = $_REQUEST['register_password'];
@@ -101,7 +101,7 @@ class visitor{
 		$user_details = new Userdetails();
 
 		$added_user = true;
-		
+		echo 'heyo 2';
 		try{
 			$user->setUsername($username);
 			$user->setPassword($hashed_password);
