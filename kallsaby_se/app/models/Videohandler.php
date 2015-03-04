@@ -75,7 +75,7 @@ class videohandler{
 	}
 
 	public function getVideopath($entityManager, $privacy, $video, $videotype, $role){
-		echo 'heyo';
+		
 		if($privacy == 'private'){
 			if($role < 4){
 				require_once 'entity/' . $videotype . '.php';

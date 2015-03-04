@@ -89,6 +89,7 @@ class Videos extends Controller{
 
 	public function player($privacy = '', $video = ''){
 		session_start();
+		echo 'heyo';
 		$visitor = $this->model('Visitor');
 		$videos = $this->model('videohandler');
 		if($visitor->isLoggedIn()){
