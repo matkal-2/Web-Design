@@ -96,8 +96,9 @@ class visitor{
 		$password = $_REQUEST['register_password'];
 		$salt = mcrypt_create_iv(16, MCRYPT_DEV_RANDOM);
 		$hashed_password = crypt( $password, $salt );
-
+		echo 'heyo new uer';
 		$user = new User();
+		echo 'heyo new detail';
 		$user_details = new Userdetails();
 
 		$added_user = true;
