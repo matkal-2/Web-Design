@@ -17,13 +17,13 @@ class Series
      */
     protected $user_id;
      /** 
-     * @Column(type="integer") 
+     * @Id @Column(type="integer") 
      * @GeneratedValue 
      * @var int
      */
     protected $id;
     /** 
-    * @Id @Column(type="string") 
+    * @Column(type="string") 
     * @var string
     */
     protected $name;

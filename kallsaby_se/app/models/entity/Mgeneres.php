@@ -11,16 +11,22 @@ class Mgenere
      **/
     private $movie;
      /** 
-     * @Id @Column(type="integer")
+     * @Id @Column(type="integer")     
+     * @GeneratedValue 
      * @var int
      */
     protected $movie_id;
-    /** 
-    * @Id @Column(type="string")
-    * @GeneratedValue 
-    * @var string
-    */
-    protected $mgenere;
+    /**
+     * @ManyToOne(targetEntity="Genere")
+     * @JoinColumn(name="genere_id", referencedColumnName="id")
+     **/
+    private $genere;
+     /** 
+     * @Column(type="integer")     
+     * @GeneratedValue 
+     * @var int
+     */
+    protected $genere_id;
     
     
 
@@ -32,14 +38,11 @@ class Mgenere
     {
         return $this->movie_id;
     }
-
-    public function getMoviegenere()
-    {
-        return $this->mgenere;
+    public function setGenere(Genere $genere){
+        $this->genere = $genere;
     }
-
-    public function setMoviegenere($mgenere)
+    public function getGenereid()
     {
-        $this->mgenere = $mgenere;
+        return $this->genere_id;
     }
 }

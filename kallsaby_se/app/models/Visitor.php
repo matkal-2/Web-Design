@@ -42,10 +42,10 @@ class visitor{
 	}
 
 	private function getUserInformation($entityManager, $id){
-		require_once 'entity/User_details.php';
+		require_once 'entity/Userdetails.php';
 
 		try{
-			$sql = 'SELECT u FROM User_details u WHERE u.user_id = :id';
+			$sql = 'SELECT u FROM Userdetails u WHERE u.user_id = :id';
 			$query = $entityManager->createQuery($sql);
 			$query->setParameter('id',$id);
 			$users_detail = $query->getResult();
@@ -75,7 +75,7 @@ class visitor{
 
 	public function information($entityManager){
 		require_once 'entity/User.php';
-		require_once 'entity/User_details.php';
+		require_once 'entity/Userdetails.php';
 		$user = visitor::getUser($entityManager, $_SESSION['username']);
 		if(!$user==null){
 			$user_information = visitor::getUserInformation($entityManager, $user->getId());
@@ -89,7 +89,7 @@ class visitor{
 
 	public function register($entityManager){
 		require_once 'entity/User.php';
-		require_once 'entity/User_details.php';
+		require_once 'entity/Userdetails.php';
 
 		$username = $_REQUEST['register_username'];
 		$email = $_REQUEST['register_email'];
@@ -98,7 +98,7 @@ class visitor{
 		$hashed_password = crypt( $password, $salt );
 
 		$user = new User();
-		$user_details = new User_details();
+		$user_details = new Userdetails();
 
 		$added_user = true;
 		
@@ -137,9 +137,10 @@ class visitor{
 		else{
 			$crypt_password = crypt($password, $user->getSalt());
 			if($crypt_password == $user->getPassword()){
-				require_once 'entity/User_details.php';
-				$user_details = $entityManager->find('User_details', $user->getId());
+				require_once 'entity/Userdetails.php';
+				$user_details = $entityManager->find('Userdetails', $user->getId());
 				$_SESSION["username"] = $user->getUsername();
+				$_SESSION["id"] = $user->getId();
 				$_SESSION["role"] = $user_details->getRole();
 				$_SESSION["color_theme"] = $user_details->getColortheme();
 				return true;

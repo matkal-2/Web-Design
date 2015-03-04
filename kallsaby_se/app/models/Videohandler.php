@@ -7,6 +7,7 @@ class videohandler{
 	
 	public function getLatestVideo($entityManager, $videotype, $page, $role){
 		require_once 'entity/' . $videotype . '.php';
+		require_once 'entity/User.php';
 		$records = $entityManager->getRepository("Video")->findBy(array(),array(),10,10*$page);
 		$this->amount = count($records);
 		$vidsamount = $this->amount;
@@ -77,12 +78,14 @@ class videohandler{
 		if($privacy == 'private'){
 			if($role < 4){
 				require_once 'entity/' . $videotype . '.php';
+				require_once 'entity/User.php';
 				$records = $entityManager->find($videotype, $video);
 				$path = '/resources/vid/'.$privacy.'/'.$videotype.'/'.$records->getVideopath();
 				return $path;
 			}
 		}else if($privacy == 'public'){
 			require_once 'entity/' . $videotype . '.php';
+			require_once 'entity/User.php';
 			$records = $entityManager->find($videotype, $video);
 			$path = '/resources/vid/'.$privacy.'/'.$videotype.'/'.$records->getVideopath();
 			return $path;
@@ -152,22 +155,39 @@ class videohandler{
 
 	public function insertVideo($entityManager, $privacy, $videotype, $path, $filename){
 		require_once 'entity/'.$videotype.'.php';
+		require_once 'entity/User.php';
 		$v = new $videotype();
 
 		$vadded = true;
+
+		
+		
+		
 		
 		try{
+			$sql = 'SELECT u FROM User u WHERE u.id = :id';
+			$query = $entityManager->createQuery($sql);
+			$query->setParameter('id',$_SESSION['id']);
+			$users = $query->getResult();
+			
+			if(!$users == null){
+				$user = $users[0];
+			}
 			$v->setVideoname($filename);
 			$v->setVideopath($path);
 			$v->setPrivacy($privacy);
+			$v->setUser($user);
+			$v->setUserid($_SESSION['id']);
 			$entityManager->persist($v);
 			$entityManager->flush();
 		}
 		catch(PDOException $e){
 			$vadded = false;
+			echo $e->getMessage();
 		}
 		catch(Exception $e){
 			$vadded = false;
+			echo $e->getMessage();
 		}
 		
 		return $vadded;

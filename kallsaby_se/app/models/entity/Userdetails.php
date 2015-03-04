@@ -1,9 +1,9 @@
 <?php
-// app/models/entity/User_details.php
+// app/models/entity/Userdetails.php
 /**
- * @Entity @Table(name="user_details", uniqueConstraints={@UniqueConstraint(name="search_idx", columns={"email"})})
+ * @Entity @Table(name="userdetails", uniqueConstraints={@UniqueConstraint(name="search_idx", columns={"email"})})
  **/
-class User_details
+class Userdetails
 {
      /**
      * @OneToOne(targetEntity="User")
