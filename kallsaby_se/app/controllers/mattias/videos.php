@@ -89,20 +89,15 @@ class Videos extends Controller{
 
 	public function player($privacy = '', $video = ''){
 		session_start();
-		echo 'heyo';
 		$visitor = $this->model('Visitor');
-		echo 'heyo 5';
 		$videos = $this->model('Videohandler');
-		echo 'heyo 4';
 		if($visitor->isLoggedIn()){
 			$role = $_SESSION['role'];
 		}
 		else{
 			$role = 10;
 		}
-		echo 'heyo 2';
-		if(isset($privacy) && isset($video)){		
-			echo 'heyo 3';
+		if(isset($privacy) && isset($video)){
 			$path = $videos->getVideopath($this->getManager(), $privacy, $video, 'Video', $role);
 			if($path != null){
 				$this->view('mattias/videos/player', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'path' => $path]);
