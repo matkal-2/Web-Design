@@ -91,6 +91,7 @@ class Videos extends Controller{
 		session_start();
 		echo 'heyo';
 		$visitor = $this->model('Visitor');
+		echo 'heyo 5';
 		$videos = $this->model('videohandler');
 		echo 'heyo 4';
 		if($visitor->isLoggedIn()){
