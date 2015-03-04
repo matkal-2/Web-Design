@@ -7,19 +7,6 @@ class Videos extends Controller{
 
 		$this->view('mattias/videos/other', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
 	}
-	public function movies(){
-		session_start();
-		$visitor = $this->model('Visitor');
-
-		$this->view('mattias/videos/movies', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
-	}
-
-	public function series(){
-		session_start();
-		$visitor = $this->model('Visitor');
-
-		$this->view('mattias/videos/series', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
-	}
 
 	public function other(){
 		session_start();
@@ -55,6 +42,82 @@ class Videos extends Controller{
 			}
 			else{
 				$this->view('mattias/videos/other', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+			}
+		}		
+	}
+
+	public function movies(){
+		session_start();
+		$visitor = $this->model('Visitor');
+		$videos = $this->model('Videohandler');
+		if($visitor->isLoggedIn()){
+			$role = $_SESSION['role'];
+		}
+		else{
+			$role = 10;
+		}		
+		if(isset($_REQUEST['search'])){
+			$v = $videos->getSearchVideo($this->getManager(), $_REQUEST['search'], 'Movie', $role, 10);
+			$amount = $videos->amount;
+			if($amount >0){
+				$this->view('mattias/videos/movies', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
+			}
+			else{
+				$this->view('mattias/videos/movies', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+			}
+		}
+		else{
+			if(isset($_GET['p'])){
+				$v = $videos->getLatestVideo($this->getManager(), 'Movie', $_GET['p'], $role);			
+				$amount = $videos->amount;
+			}
+			else{
+				$v = $videos->getLatestVideo($this->getManager(), 'Movie', 0, $role);			
+				$amount = $videos->amount;
+			}
+			if($amount >0){
+				$this->view('mattias/videos/movies', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
+			}
+			else{
+				$this->view('mattias/videos/movies', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+			}
+		}		
+	}
+
+	public function series(){
+		session_start();
+		$visitor = $this->model('Visitor');
+		$videos = $this->model('Videohandler');
+		if($visitor->isLoggedIn()){
+			$role = $_SESSION['role'];
+		}
+		else{
+			$role = 10;
+		}		
+		if(isset($_REQUEST['search'])){
+			$v = $videos->getSearchVideo($this->getManager(), $_REQUEST['search'], 'Series', $role, 10);
+			$amount = $videos->amount;
+			if($amount >0){
+				$this->view('mattias/videos/series', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
+			}
+			else{
+				$this->view('mattias/videos/series', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+			}
+		}
+		else{
+			if(isset($_GET['p'])){
+				$v = $videos->getLatestVideo($this->getManager(), 'Series', $_GET['p'], $role);			
+				$amount = $videos->amount;
+			}
+			else{
+				$v = $videos->getLatestVideo($this->getManager(), 'Series', 0, $role);			
+				$amount = $videos->amount;
+			}
+			if($amount >0){
+				$this->view('mattias/videos/series', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
+			}
+			else{
+				$this->view('mattias/videos/series', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
 			}
 		}		
 	}

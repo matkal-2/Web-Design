@@ -55,13 +55,13 @@ echo '
 					</div>
 				</div>
 				<div class="result-box">
-					<div id="result-head" class="result-head"></div>';
+					<div id="result-head" class="result-head">Other</div>';
 					if(isset($videos)&& isset($amount)){
 
 						for ($i=0; $i<$amount; $i++){							
 							echo '
 								<div class="result-video">
-									<a href="/mattias/videos/player/'.$videos[$i][1].'">'.$videos[$i][0].'</a>
+									<a href="/mattias/videos/player/'.$videos[$i][1].'">'.$videos[$i][0].'</a>									
 									<br>
 									<a href="/mattias/videos/removevid/'.$videos[$i][1].'">Remove video</a>
 								</div>

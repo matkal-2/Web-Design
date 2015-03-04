@@ -8,7 +8,7 @@ class videohandler{
 	public function getLatestVideo($entityManager, $videotype, $page, $role){
 		require_once 'entity/' . $videotype . '.php';
 		require_once 'entity/User.php';
-		$records = $entityManager->getRepository("Video")->findBy(array(),array(),10,10*$page);
+		$records = $entityManager->getRepository($videotype)->findBy(array(),array(),10,10*$page);
 		$this->amount = count($records);
 		$vidsamount = $this->amount;
 		$vids;
