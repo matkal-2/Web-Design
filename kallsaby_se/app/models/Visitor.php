@@ -95,10 +95,14 @@ class visitor{
 		$email = $_REQUEST['register_email'];
 		$password = $_REQUEST['register_password'];
 		echo 'crypt';
-		$salt = mcrypt_create_iv(16, MCRYPT_DEV_RANDOM);
-		echo 'crypt 2';
-		$hashed_password = crypt( $password, $salt );
-		echo 'heyo new uer';
+		try{
+			$salt = mcrypt_create_iv(16, MCRYPT_DEV_RANDOM);
+			$hashed_password = crypt( $password, $salt );
+		}
+		catch(Exception $e){
+			echo $e->getMessage();
+		}
+		
 		$user = new User();
 		echo 'heyo new detail';
 		$user_details = new Userdetails();
