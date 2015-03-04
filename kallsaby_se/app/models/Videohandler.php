@@ -38,6 +38,7 @@ class videohandler{
 
 	public function getSearchVideo($entityManager, $queryString,  $videotype, $role, $results){
 		require_once 'entity/' . $videotype . '.php';
+		require_once 'entity/User.php';
 
 		$qb = $entityManager->getRepository($videotype)->createQueryBuilder('v')
    			->where('v.name LIKE :name')
