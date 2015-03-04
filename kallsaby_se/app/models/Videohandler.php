@@ -95,15 +95,25 @@ class videohandler{
 	}
 
 	public function removeVideo($entityManager, $video, $videotype){
+		require_once 'entity/' . $videotype . '.php';
+		require_once 'entity/User.php';
 		$records = $entityManager->find($videotype, $video);
 		if($records == false){
-			return null;
+			return false;
 		}
-		$privacy = $records->getPrivacy();		
-		$path = '/resources/vid/'.$privacy.'/'.$videotype.'/'.$records->getVideopath();
-		if(file_exists($path)){
+		if($records->getUserid() == $_SESSION['id']){
+			$privacy = $records->getPrivacy();		
+			$path = '/resources/vid/'.$privacy.'/'.$videotype.'/'.$records->getVideopath();
+			if(file_exists($path)){
 
+			}
+			$entityManager->remove($records);
+			$entityManager->flush();
+			return true;
 		}
+		else{
+			return false;
+		}		
 	}
 
 	public function uploadVideo($entityManager, $privacy, $videotype){

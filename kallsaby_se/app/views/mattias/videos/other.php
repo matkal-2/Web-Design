@@ -62,7 +62,10 @@ echo '
 							echo '
 								<div class="result-video">
 									<a href="/mattias/videos/player/'.$videos[$i][1].'">'.$videos[$i][0].'</a>
-								</div>';
+									<br>
+									<a href="/mattias/videos/removevid/'.$videos[$i][1].'">Remove video</a>
+								</div>
+								';
 						}
 					}					
 					echo '

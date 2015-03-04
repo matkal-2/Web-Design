@@ -113,6 +113,8 @@ class Videos extends Controller{
 		session_start();
 		$visitor = $this->model('Visitor');
 		$videos = $this->model('Videohandler');
-		$videos->removevideo($this->getManager(), $video, 'Video');
+		$u = $videos->removevideo($this->getManager(), $video, 'Video');
+
+		header ( 'Location: /mattias/videos/other' );
 	}
 }
