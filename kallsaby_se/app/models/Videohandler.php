@@ -135,8 +135,11 @@ class videohandler{
 					    	$i = 0;
 					    }
 					    else{
-					    	move_uploaded_file($_FILES["file"]["tmp_name"],
+					    	$u=move_uploaded_file($_FILES["file"]["tmp_name"],
 					    	$path . $filename . '.'.$extension);
+					    	if($u){
+					    		echo 'yep';
+					    	}
 					    	$this->status = $this->status."<br />Stored in: " . $path . $filename . '.'.$extension;
 					    	$this->insertVideo($entityManager, $privacy, $videotype, $filename.'.'.$extension, $filename);
 					    	return true;
@@ -148,8 +151,11 @@ class videohandler{
 					    	$i += 1;
 					    }
 					    else{
-					    	move_uploaded_file($_FILES["file"]["tmp_name"],
+					    	$u=move_uploaded_file($_FILES["file"]["tmp_name"],
 					    	$path . $filename.'('.$i.')' . '.'.$extension);
+					    	if($u){
+					    		echo 'yep';
+					    	}
 					    	$this->status = $this->status."<br />Stored in: " . $path . $filename.'('.$i.')' . '.'.$extension;
 					    	$this->insertVideo($entityManager, $privacy, $videotype, $filename.'('.$i.')'.'.'.$extension, $filename);
 					    	return true;
