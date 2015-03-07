@@ -2,7 +2,7 @@
 echo '<!DOCTYPE html>
 <html>
 	<head>
-		<title>Webpage</title>';
+		<title>Kalls&auml;by</title>';
 		
 switch($data['color_theme']){
 	case 'red':
