@@ -11,7 +11,7 @@ class Account extends Controller{
 			header( 'Location: /mattias/home' ) ;
 		}
 		
-		$this->view('global/account/index', ['user_info' => $user_info, 'color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+		$this->view('global/account/index', ['user_info' => $user_info, 'color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn()]);
 	}
 	public function settings(){
 		session_start();
@@ -31,12 +31,12 @@ class Account extends Controller{
 			header( 'Location: /mattias/home' ) ;
 		}
 
-		$this->view('global/account/settings', ['updated'=> $updated, 'user_info' => $user_info, 'color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+		$this->view('global/account/settings', ['updated'=> $updated, 'user_info' => $user_info, 'color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn()]);
 	}
 	public function files(){
 		session_start();
 		$visitor = $this->model('Visitor');
 
-		$this->view('global/account/files', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+		$this->view('global/account/files', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn()]);
 	}
 }

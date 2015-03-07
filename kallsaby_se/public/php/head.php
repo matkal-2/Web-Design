@@ -20,7 +20,7 @@ switch($data['color_theme']){
 		<link rel="stylesheet" href="/css/blue.css">
 		';
 		break;
-	case 'grey':
+	case $this->getColorTheme():
 		echo '<link rel="stylesheet" href="/css/main.css" >
 		<link rel="stylesheet" href="/css/grey.css" media="only">
 		';

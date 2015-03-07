@@ -12,11 +12,11 @@
 }
 
 .nav-item:hover{
-	background-color: #644;
+	background-color: #444;
 }
 
 .nav-item:focus{
-	background-color: #644;
+	background-color: #444;
 }
 
 .nav-content {
@@ -27,7 +27,105 @@
 .nav-content a {
 	color:#fff;
 }
+
 .foot-bar{
 	background-color:#422;
 	color:#fff;
+}
+
+.body-background{
+	background-image: url("/img/backgroundRed.png");
+}
+
+.body-content{
+	background-color:#fdd;
+}
+
+.title-bar{
+	background-color:#b99;
+
+}
+
+.holder-bar{
+	background-color:#ecc;
+}
+
+.form-select select {
+	background: url("/img/down_arrow.png") no-repeat right #fdd;
+}
+
+.form-select select:focus {
+	background: url("/img/down_arrow.png") no-repeat right #f0d3d0;
+}
+
+
+.form-field input{
+	background:#fdd;   	
+}
+
+
+.form-field :focus{
+	background:#f0d3d0;
+}
+
+.form-button{
+	background-color: #dbb;
+}
+
+.anchor-button{
+	background-color: #dbb;
+	color:#422;
+}
+
+.anchor-button:hover{
+	background-color: #fdd;
+	color:#020;
+}
+
+.form-button:hover{
+	background-color: #fdd;
+	color:#020;
+}
+
+.form-button:active{
+	background-color: #766;
+}
+
+.search-menu{
+	background-color:#a88;
+}
+
+.-head{
+	background-color:#dbb;
+}
+
+
+.result-box{
+	background-color: #977;
+}
+
+.result-head{
+	background-color:#dbb;
+}
+
+.result-video{
+	background-color:#ecc;
+}
+
+.result-video a{
+	color: #422;
+}
+
+
+.search-field{   	
+   	border: 3px solid #aaa;
+}
+
+.search-field input{
+	background:#fdd;
+   	
+}
+
+.search-field :focus{
+	background:#f0d3d0;
 }

@@ -10,11 +10,11 @@ class Login extends Controller{
 					header( 'Location: /mattias/home' ) ;
 				}
 				else{
-					$this->view('global/login/index', ['color_theme' => 'grey', 'loggin_failed' => true]);
+					$this->view('global/login/index', ['color_theme' => $this->getColorTheme(), 'loggin_failed' => true]);
 				}
 			}
 			else{
-				$this->view('global/login/index', ['color_theme' => 'grey']);
+				$this->view('global/login/index', ['color_theme' => $this->getColorTheme()]);
 			}
 		}
 		else{
@@ -34,7 +34,7 @@ class Login extends Controller{
 				}
 				else if($data == "register_failed"){
 					$registerd = false;
-					$this->view('global/login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
+					$this->view('global/login/register', ['color_theme' => $this->getColorTheme(), 'registerd' => $registerd]);
 				}				
 			}							
 			if(isset($_REQUEST['register_username'])){				
@@ -47,7 +47,7 @@ class Login extends Controller{
 			}
 			else{
 				$registerd = true;
-				$this->view('global/login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
+				$this->view('global/login/register', ['color_theme' => $this->getColorTheme(), 'registerd' => $registerd]);
 			}
 		}
 		else{

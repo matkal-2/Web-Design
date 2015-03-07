@@ -5,7 +5,7 @@ class Videos extends Controller{
 		session_start();
 		$visitor = $this->model('Visitor');
 
-		$this->view('mattias/videos/other', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+		$this->view('mattias/videos/other', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn()]);
 	}
 
 	public function other(){
@@ -17,15 +17,15 @@ class Videos extends Controller{
 		}
 		else{
 			$role = 10;
-		}		
+		}
 		if(isset($_REQUEST['search'])){
 			$v = $videos->getSearchVideo($this->getManager(), $_REQUEST['search'], 'Video', $role, 10);
 			$amount = $videos->amount;
 			if($amount >0){
-				$this->view('mattias/videos/other', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
+				$this->view('mattias/videos/other', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
 			}
 			else{
-				$this->view('mattias/videos/other', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+				$this->view('mattias/videos/other', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn()]);
 			}
 		}
 		else{
@@ -38,12 +38,17 @@ class Videos extends Controller{
 				$amount = $videos->amount;
 			}
 			if($amount >0){
-				$this->view('mattias/videos/other', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
+				$this->view('mattias/videos/other', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
 			}
 			else{
-				$this->view('mattias/videos/other', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+				$this->view('mattias/videos/other', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn()]);
 			}
 		}		
+	}
+
+	private function test(){
+		echo 'helo';
+
 	}
 
 	public function movies(){
@@ -60,10 +65,10 @@ class Videos extends Controller{
 			$v = $videos->getSearchVideo($this->getManager(), $_REQUEST['search'], 'Movie', $role, 10);
 			$amount = $videos->amount;
 			if($amount >0){
-				$this->view('mattias/videos/movies', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
+				$this->view('mattias/videos/movies', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
 			}
 			else{
-				$this->view('mattias/videos/movies', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+				$this->view('mattias/videos/movies', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn()]);
 			}
 		}
 		else{
@@ -76,10 +81,10 @@ class Videos extends Controller{
 				$amount = $videos->amount;
 			}
 			if($amount >0){
-				$this->view('mattias/videos/movies', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
+				$this->view('mattias/videos/movies', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
 			}
 			else{
-				$this->view('mattias/videos/movies', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+				$this->view('mattias/videos/movies', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn()]);
 			}
 		}		
 	}
@@ -98,10 +103,10 @@ class Videos extends Controller{
 			$v = $videos->getSearchVideo($this->getManager(), $_REQUEST['search'], 'Series', $role, 10);
 			$amount = $videos->amount;
 			if($amount >0){
-				$this->view('mattias/videos/series', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
+				$this->view('mattias/videos/series', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
 			}
 			else{
-				$this->view('mattias/videos/series', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+				$this->view('mattias/videos/series', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn()]);
 			}
 		}
 		else{
@@ -114,10 +119,10 @@ class Videos extends Controller{
 				$amount = $videos->amount;
 			}
 			if($amount >0){
-				$this->view('mattias/videos/series', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
+				$this->view('mattias/videos/series', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn(), 'amount' => $amount, 'videos' => $v]);
 			}
 			else{
-				$this->view('mattias/videos/series', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+				$this->view('mattias/videos/series', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn()]);
 			}
 		}		
 	}
@@ -135,14 +140,14 @@ class Videos extends Controller{
 		if($role < 6){
 			if(isset($_FILES['file'])){				
 				if($videos->uploadVideo($this->getManager(),'public','Video')){
-					$this->view('mattias/videos/upload', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'uploaded' => $videos->status]);
+					$this->view('mattias/videos/upload', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn(), 'uploaded' => $videos->status]);
 				}
 				else{
-					$this->view('mattias/videos/upload', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'uploaded' => $videos->error]);
+					$this->view('mattias/videos/upload', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn(), 'uploaded' => $videos->error]);
 				}
 			}
 			else{
-				$this->view('mattias/videos/upload', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn()]);
+				$this->view('mattias/videos/upload', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn()]);
 			}			
 		}
 		else{
@@ -163,7 +168,7 @@ class Videos extends Controller{
 		if(isset($video)){
 			$path = $videos->getVideopath($this->getManager(), $video, 'Video', $role);
 			if($path != null){
-				$this->view('mattias/videos/player', ['color_theme' => 'grey', 'logged_in' => $visitor->isLoggedIn(), 'path' => $path]);
+				$this->view('mattias/videos/player', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn(), 'path' => $path]);
 			}
 			else{
 				header( 'Location: /mattias/videos/other' ) ;

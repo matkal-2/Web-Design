@@ -14,7 +14,7 @@ class Login_ extends Controller{
 				}
 			}
 			else{
-				$this->view('login/index', ['color_theme' => 'grey']);
+				$this->view('login/index', ['color_theme' => $this->getColorTheme()]);
 			}
 		}
 		else{
@@ -48,17 +48,17 @@ class Login_ extends Controller{
 					else if($data == "register_failed"){
 
 						$registerd = false;
-						$this->view('login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
+						$this->view('login/register', ['color_theme' => $this->getColorTheme(), 'registerd' => $registerd]);
 					}
 					else{
 						$registerd = true;
-						$this->view('login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
+						$this->view('login/register', ['color_theme' => $this->getColorTheme(), 'registerd' => $registerd]);
 					}
 					
 				}
 				else{
 					$registerd = true;
-					$this->view('login/register', ['color_theme' => 'grey', 'registerd' => $registerd]);
+					$this->view('login/register', ['color_theme' => $this->getColorTheme(), 'registerd' => $registerd]);
 				}
 				
 			}

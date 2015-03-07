@@ -62,11 +62,11 @@ class Userdetails
 
     public function getColortheme()
     {
-        return $this->color_theme;
+        return $this->getColorTheme();
     }
 
     public function setColortheme($color_theme)
     {
-        $this->color_theme = $color_theme;
+        $this->getColorTheme() = $color_theme;
     }
 }

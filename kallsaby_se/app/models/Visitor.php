@@ -117,7 +117,7 @@ class visitor{
 			$user_details->setUser($user);
 			$user_details->setEmail($email);
 			$user_details->setRole(1);
-			$user_details->setColortheme('grey');
+			$user_details->setColortheme($this->getColorTheme());
 			$entityManager->persist($user);
 			$entityManager->persist($user_details);
 			$entityManager->flush();

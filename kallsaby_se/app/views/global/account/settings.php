@@ -51,7 +51,7 @@ echo '
 				  						<option value="blue" selected>Blue</option>
 				 						<option value="grey">Grey</option>';
 										break;
-									case 'grey':
+									case $this->getColorTheme():
 										echo '
 										<option value="red" selected>Red</option>
 				 						<option value="green">Green</option>

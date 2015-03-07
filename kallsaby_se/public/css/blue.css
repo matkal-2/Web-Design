@@ -32,3 +32,102 @@
 	background-color:#224;
 	color:#fff;
 }
+
+
+.body-background{
+	background-image: url("/img/backgroundBlue.png");
+}
+
+.body-content{
+	background-color:#eef;
+}
+
+.title-bar{
+	background-color:#99b;
+
+}
+
+.holder-bar{
+	background-color:#ccd;
+}
+
+.form-select select {
+	background: url("/img/down_arrow.png") no-repeat right #ddf;
+}
+
+.form-select select:focus {
+	background: url("/img/down_arrow.png") no-repeat right #d0d3f0;
+}
+
+
+.form-field input{
+	background:#ddf;   	
+}
+
+
+.form-field :focus{
+	background:#d0d3f0;
+}
+
+.form-button{
+	background-color: #bbd;
+}
+
+.anchor-button{
+	background-color: #bbd;
+	color:#224;
+}
+
+.anchor-button:hover{
+	background-color: #ddf;
+	color:#020;
+}
+
+.form-button:hover{
+	background-color: #ddf;
+	color:#020;
+}
+
+.form-button:active{
+	background-color: #667;
+}
+
+.search-menu{
+	background-color:#88a;
+}
+
+.-head{
+	background-color:#bbd;
+}
+
+
+.result-box{
+	background-color: #224;
+	opacity: 0.5; 
+}
+
+.result-head{
+	background-color:#bbd;
+}
+
+.result-video{
+	background-color:#cce;
+}
+
+.result-video a{
+	color: #224;
+}
+
+
+.search-field{   	
+   	border: 3px solid #aac;
+}
+
+.search-field input{
+	background:#ddf;
+   	
+}
+
+.search-field :focus{
+	background:#d0d3d0;
+}

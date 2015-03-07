@@ -2,7 +2,11 @@
 
 class Controller{
 	private $em;
+	private $color_theme = 'blue';
 
+	public function getColorTheme(){
+		return $this->color_theme;
+	}
 	public function getManager(){
 		if(isset($this->em)){
 			return $this->em;
