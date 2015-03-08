@@ -25,7 +25,7 @@ body, html{
 	-webkit-box-shadow:  0px 0px 10px #000;
     box-shadow:  0px 0px 10px #000;
     z-index:20;
-    position: fixed;
+    position: absolute;
 	width:100%;
 	/*background-color:#222;*/
 	height:70px;
@@ -436,13 +436,12 @@ video, iframe {
 
 .cv-name{
 	float: left;
+	margin-top: 25px;
 }
 
 .cv-head h2{
 	margin:0px;
 	font-size: 40px;
-	-webkit-text-shadow: 3px 3px 5px #999;
-    text-shadow: 3px 3px 5px #999;
 
 }
 
@@ -450,7 +449,6 @@ video, iframe {
 	float:left;
 	margin: 20px -60px 0 60px;
 	color: #aaa;
-
 }
 
 .cv-contact > ul{
@@ -465,28 +463,13 @@ video, iframe {
 	margin: 2px;
 }
 
-.cv-menu{
-	font-family: cursive;
-	font-weight: 200;
-	min-height: 30px;
-	border-bottom: 1px solid #aaa;
-	width: 80%;
-	margin: auto;
-	-webkit-text-shadow: 3px 3px 5px #999;
-    text-shadow: 3px 3px 5px #999;
-}
-
-.cv-menu a{
-	color: #444;
-	-webkit-text-shadow: 3px 3px 5px #999;
-    text-shadow: 3px 3px 5px #999;
-}
-
-.cv-menu a:hover{
-	color: #236;
-	cursor:pointer;
-	-webkit-text-shadow: 3px 3px 5px #555;
-    text-shadow: 3px 3px 5px #555;
+.cv-holder{
+	margin: 40px auto 0 auto;
+	width: 760px;
+	height:auto;
+	overflow: auto;
+	border: 2px solid #222;
+	background-color: #eee;
 }
 
 .cv-profilepic{

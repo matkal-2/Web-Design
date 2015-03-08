@@ -2,7 +2,7 @@
 
 class Controller{
 	private $em;
-	private $color_theme = 'blue';
+	private $color_theme = 'grey';
 
 	public function getColorTheme(){
 		return $this->color_theme;
