@@ -24,7 +24,7 @@ class Controller{
 			require_once '../app/models/' . $model . '.php';
 		}
 		else{
-			echo 'core controlelr no file, ';
+			echo 'core controlelr no file named '.$model . '.php, ';
 		}
 		
 		
