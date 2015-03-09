@@ -19,7 +19,12 @@ class Controller{
 	}
 
 	public function model($model){
+		echo 'core controller mode, ';
+		try{
 		require_once '../app/models/' . $model . '.php';
+		}catch(Exception $e){
+			echo $e->getMessage();
+		}
 		return new $model();
 	}
 
