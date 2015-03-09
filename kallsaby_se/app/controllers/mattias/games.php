@@ -10,20 +10,16 @@ class Games extends Controller{
 	public function leagueoflegends(){
 		session_start();
 
-		echo 'controller';
+		echo 'controller, ';
 
 		$visitor = $this->model('Visitor');
-		echo 'controller Visitor';
-		try{
-			$lolapi = $this->model('Lolapi');
-		}
-		catch(Exception $e){
-			echo $e->getMessage();
-		}
+		echo 'controller Visitor, ';
 		
-		echo 'controller Lolapi';
+		$lolapi = $this->model('Lolapi');
+		
+		echo 'controller Lolapi, ';
 		$lolstats = $lolapi->getStats() + $lolapi->getLeague();
-		echo 'controller Lolapi get stats';
+		echo 'controller Lolapi get stats, ';
 
 		$this->view('mattias/games/leageoflegends', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn(), 'lolstat' => $lolstats ]);
 	}

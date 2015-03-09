@@ -1,5 +1,5 @@
 <?php
-class Lolapi{
+class lolapi{
 	public function getStats(){
 		$jsonurl = "https://euw.api.pvp.net/api/lol/euw/v1.3/stats/by-summoner/24478215/summary?season=SEASON2015&api_key=33f0e40b-c2c6-43fe-8486-d81cb73e66c5";
 		$json = file_get_contents($jsonurl, null, null);
