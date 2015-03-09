@@ -20,11 +20,14 @@ class Controller{
 
 	public function model($model){
 		echo 'core controller mode, ';
-		try{
-		require_once '../app/models/' . $model . '.php';
-		}catch(Exception $e){
-			echo $e->getMessage();
+		if (file_exists('../app/models/' . $model . '.php')){
+			require_once '../app/models/' . $model . '.php';
 		}
+		else{
+			echo 'core controlelr no file, ';
+		}
+		
+		
 		echo 'core controlelr return, ';
 		return new $model();
 	}
