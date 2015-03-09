@@ -7,12 +7,14 @@ class Games extends Controller{
 
 		$this->view('mattias/games/other', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn()]);
 	}
-	public function leageoflegends(){
+	public function leagueoflegends(){
 		session_start();
 
 		$visitor = $this->model('Visitor');
+		$lolapi = $this->model('Lolapi');
+		$lolstats = $lolapi->getStats() + $lolapi->getLeague();
 
-		$this->view('mattias/games/leageoflegends', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn()]);
+		$this->view('mattias/games/leageoflegends', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn(), 'lolstat' => $lolstats ]);
 	}
 
 	public function worldofwarcraft(){
