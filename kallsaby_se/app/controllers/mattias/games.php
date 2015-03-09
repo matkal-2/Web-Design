@@ -14,7 +14,9 @@ class Games extends Controller{
 
 		$visitor = $this->model('Visitor');
 		echo 'controller Visitor';
-		try{$lolapi = $this->model('Lolapi');}
+		try{
+			$lolapi = $this->model('Lolapi');
+		}
 		catch(Exception $e){
 			echo $e->getMessage();
 		}
