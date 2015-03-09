@@ -19,16 +19,12 @@ class Controller{
 	}
 
 	public function model($model){
-		echo 'core controller mode, ';
 		if (file_exists('../app/models/' . $model . '.php')){
 			require_once '../app/models/' . $model . '.php';
 		}
 		else{
 			echo 'core controlelr no file named '.$model . '.php, ';
 		}
-		
-		
-		echo 'core controlelr return, ';
 		return new $model();
 	}
 
