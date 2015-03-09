@@ -25,6 +25,7 @@ class Controller{
 		}catch(Exception $e){
 			echo $e->getMessage();
 		}
+		echo 'core controlelr return, ';
 		return new $model();
 	}
 
