@@ -14,7 +14,11 @@ class Games extends Controller{
 
 		$visitor = $this->model('Visitor');
 		echo 'controller Visitor';
-		$lolapi = $this->model('Lolapi');
+		try{$lolapi = $this->model('Lolapi');}
+		catch(Exception $e){
+			echo $e->getMessage();
+		}
+		
 		echo 'controller Lolapi';
 		$lolstats = $lolapi->getStats() + $lolapi->getLeague();
 		echo 'controller Lolapi get stats';
