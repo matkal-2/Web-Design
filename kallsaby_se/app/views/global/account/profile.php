@@ -16,4 +16,5 @@ echo '
 
 readfile("html/foot_bar.html");
 readfile("html/body.html");
+echo '<script src="/js/menuBar.js"></script>';
 readfile("html/foot.html");

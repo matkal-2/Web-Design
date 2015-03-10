@@ -43,4 +43,5 @@ echo '
 
 
 readfile("html/foot_bar.html");
+echo '<script src="/js/menuBar.js"></script>';
 readfile("html/foot.html");
