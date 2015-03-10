@@ -3,8 +3,8 @@ if(isset($data['logged_in']) && $data['logged_in']){
 	echo '
 		<ul class="login_button">
 			<li>
-				<a href="#"class="nav-item">Account</a>
-				<div class="nav-content">
+				<a href="#" onfocus="dropDown(\'nav-content1\');" onblur="riseUp(\'nav-content1\');" class="nav-item">Account</a>
+				<div class="nav-content" id="nav-content5">
 					<div class="nav-sub">
 						<ul>
 							<li><a href="/mattias/account/index">Profile</a></li>
@@ -22,8 +22,8 @@ else{
 	echo '
 		<ul class="login_button">
 			<li>
-				<a href="#"class="nav-item">Account</a>
-				<div class="nav-content">
+				<a href="#" onfocus="dropDown(\'nav-content5\');" onblur="riseUp(\'nav-content5\');" class="nav-item">Account</a>
+				<div class="nav-content" id="nav-content5">
 					<div class="nav-sub">
 						<ul>
 							<li><a href="/mattias/login">Log In or Register</a></li>

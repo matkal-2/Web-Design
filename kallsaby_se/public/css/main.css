@@ -61,13 +61,14 @@ body, html{
 	/*background-color: #444;*/
 }
 
+/*
 .nav-item:focus ~ .nav-content{
 	max-height: 400px;
 	-webkit-transition:max-height 0.4s ease-in;
 	-moz-transition:max-height 0.4s ease-in;
 	transition:max-height 0.4s ease-in;
 }
-
+*/
 .nav-option{
 	display:none;
 }

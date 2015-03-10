@@ -11,6 +11,7 @@ echo '
 		<div class="body-content">
 		<div class="body-center-container">
 			<h1>V&auml;lkommen!</h1>
+			<div id="test"></div>
 		</div>
 		<div class="index-top-pic">
 			<img src="/img/cheers.jpg" alt="Profile Picture">
@@ -20,4 +21,5 @@ echo '
 	</div>';
 readfile("html/foot_bar.html");
 readfile("html/body.html");
+echo '<script src="/js/menuBar.js"></script>';
 readfile("html/foot.html");
