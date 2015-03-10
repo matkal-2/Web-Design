@@ -14,7 +14,7 @@ echo '
 			<div class="index-top-pic">
 				<div class="inner-top-pic" id="inner-top-pic">
 					<img src="/img/cheers.jpg" alt="Profile Picture">
-					<img src="/img/cheers.jpg" alt="Profile Picture">
+					<img src="/img/princes.jpg" alt="Profile Picture">
 				</div>
 			</div>
 			<div class="slider-button">
