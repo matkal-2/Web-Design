@@ -1,0 +1,62 @@
+
+.game-holder{
+	text-align: center;
+	margin: 40px auto 0 auto;
+	width: 800px;
+	padding:10px 40px 20px 40px;
+	height:auto;
+	overflow: auto;
+}
+
+.game-logo{
+	float:right;
+	width:180px;
+	
+}
+
+.game-logo img{
+	float: right;
+	width:180px;
+	margin:auto;
+}
+
+.game-head{
+	width: 100%;
+	overflow: auto;
+	background: -webkit-linear-gradient(left top, #111 , #336); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(bottom right, #111, #336); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(bottom right, #111, #336); /* For Firefox 3.6 to 15 */
+  	background: linear-gradient(to bottom right, #111 , #336);
+	border: 3px solid #111;
+	border-radius: 25px;
+
+}
+.game-head h1{
+	font-size: 40px;
+	color: #B8860B;
+	-webkit-text-shadow: 1px 1px 2px #aaa;
+    text-shadow: 1px 1px 2px #aaa;
+	float: left;
+	margin: 8px 0 auto 150px;
+}
+
+.game-user{
+	padding: 10px;
+	margin: auto;
+	background: -webkit-linear-gradient(left top, #333 , #446); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(bottom right, #333, #446); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(bottom right, #333, #446); /* For Firefox 3.6 to 15 */
+  	background: linear-gradient(to bottom right, #333 , #446);
+	width: 80%;
+	border-left: 2px solid #111;
+	border-right:2px solid #111;
+	border-bottom:2px solid #111;
+	border-radius: 0 0 25px 25px;
+	color: #B8860B;
+}
+
+.game-user-info{
+	width: 300px;
+	margin: auto;
+	
+}

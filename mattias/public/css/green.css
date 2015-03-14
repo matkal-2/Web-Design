@@ -1,0 +1,131 @@
+.nav-main .logo > a{
+	color:#fff;
+}
+
+.nav-main{
+	background-color:#242;
+	color:#fff;
+}
+
+.nav-item{
+	color: #fff;
+}
+
+.nav-item:hover{
+	background-color: #464;
+}
+
+.nav-item:focus{
+	background-color: #464;
+}
+
+.nav-content {
+	background-color: #242;
+	color: #fff;
+}
+
+.nav-content a {
+	color:#fff;
+}
+
+.foot-bar{
+	background-color:#242;
+	color:#fff;
+}
+
+.body-background{
+	background-image: url("/img/background.png");
+}
+
+.body-content{
+	background-color:#dfd;
+}
+
+.title-bar{
+	background-color:#9b9;
+
+}
+
+.holder-bar{
+	background-color:#cec;
+}
+
+.form-select select {
+	background: url("/img/down_arrow.png") no-repeat right #dfd;
+}
+
+.form-select select:focus {
+	background: url("/img/down_arrow.png") no-repeat right #d0f3d0;
+}
+
+
+.form-field input{
+	background:#dfd;   	
+}
+
+
+.form-field :focus{
+	background:#d0f3d0;
+}
+
+.form-button{
+	background-color: #bdb;
+}
+
+.anchor-button{
+	background-color: #bdb;
+	color:#242;
+}
+
+.anchor-button:hover{
+	background-color: #dfd;
+	color:#020;
+}
+
+.form-button:hover{
+	background-color: #dfd;
+	color:#020;
+}
+
+.form-button:active{
+	background-color: #676;
+}
+
+.search-menu{
+	background-color:#8a8;
+}
+
+.-head{
+	background-color:#bdb;
+}
+
+
+.result-box{
+	background-color: #797;
+}
+
+.result-head{
+	background-color:#bdb;
+}
+
+.result-video{
+	background-color:#cec;
+}
+
+.result-video a{
+	color: #242;
+}
+
+
+.search-field{   	
+   	border: 3px solid #aaa;
+}
+
+.search-field input{
+	background:#dfd;
+   	
+}
+
+.search-field :focus{
+	background:#d0f3d0;
+}
