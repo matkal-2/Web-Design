@@ -14,15 +14,16 @@ class Controller{
 	}
 
 	public function view($layout, $view, $data = []){
-		echo "heyo";
 		require_once '../app/lib/viewHelper.php';
-		echo "heyo 2";
+		$vh = new viewHelper();
+		$js = $vh->importJS($view);
+		
 		$expView = explode('/',$view , FILTER_SANITIZE_URL));
 		$style = '<link rel="stylesheet" href="/css/fam.css">';
 		if(file_exists('/public/css/'.$styler[0].'.css')){
 			$style .= '<link rel="stylesheet" href="/css/'.$expView[0].'.css">';
 		}
-		$js = importJS($view);
+		
 		require_once '../app/views/layouts/'.$layout.'.phtml';
 	}
 
