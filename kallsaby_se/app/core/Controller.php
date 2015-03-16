@@ -1,26 +1,8 @@
 <?php
 
 class Controller{
-	private $em;
-	private $color_theme = 'grey';
-
-	public function getColorTheme(){		
-		if(isset($_SESSION['color_theme'])){
-			return $_SESSION['color_theme'];
-		}
-		return $this->color_theme;
-	}
-	public function getManager(){
-		if(isset($this->em)){
-			return $this->em;
-		}
-		else{
-			require_once "../bootstrap.php";
-			$this->em = $entityManager;
-			return $this->em;
-		}
-	}
-
+	require_once '../app/lib/viewHelper.php';
+	
 	public function model($model){
 		if (file_exists('../app/models/' . $model . '.php')){
 			require_once '../app/models/' . $model . '.php';
@@ -31,7 +13,14 @@ class Controller{
 		return new $model();
 	}
 
-	public function view($view, $data = []){
-		require_once '../app/views/'. $view . '.php';
+	public function view($layout, $view, $data = []){
+		$expView = explode('/',$view , FILTER_SANITIZE_URL));
+		$style = '<link rel="stylesheet" href="/css/fam.css">';
+		if(file_exists('/public/css/'.$styler[0].'.css')){
+			$style .= '<link rel="stylesheet" href="/css/'.$expView[0].'.css">';
+		}
+		$js = importJS($view);
+		require_once '../app/views/layouts/'.$layout.'.phtml';
 	}
+
 }
