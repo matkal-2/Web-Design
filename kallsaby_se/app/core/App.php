@@ -11,7 +11,7 @@ class App{
 
 	public function __construct(){
 
-
+		echo "heyo app";
 		$url = $this->parseUrl();
 		if(isset($url[0])){
 			if(file_exists('../app/controllers/'. $this->webpage .'/'. $url[0] . '.php' )){
@@ -20,10 +20,12 @@ class App{
 			}
 		}
 
-		require_once '../app/controllers/'. $this->controller . '.php';
-		
-		$this->controller = new $this->controller;
+		echo "heyo app 1";
 
+		require_once '../app/controllers/'. $this->controller . '.php';
+		echo "heyo 2";
+		$this->controller = new $this->controller;
+		echo "heyo 3"; 
 		if(isset($url[1])){
 			if(method_exists($this->controller, $url[1])){
 				$this->method = $url[1];
