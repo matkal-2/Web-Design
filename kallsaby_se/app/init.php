@@ -1,6 +1,12 @@
 <?php
 require_once 'core/App.php';
 echo "heyo init";
-require_once 'core/Controller.php';
+try{
+	require_once 'core/Controller.php';
+}
+catch (Exception $e){
+ echo $e->getMessage();
+}
+
 
 $app = new App;
