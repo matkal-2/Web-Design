@@ -1,8 +1,8 @@
 <?php
 
 class Controller{
-	require_once '../app/lib/viewHelper.php';
 	
+
 	public function model($model){
 		if (file_exists('../app/models/' . $model . '.php')){
 			require_once '../app/models/' . $model . '.php';
@@ -14,6 +14,7 @@ class Controller{
 	}
 
 	public function view($layout, $view, $data = []){
+		require_once '../app/lib/viewHelper.php';
 		$expView = explode('/',$view , FILTER_SANITIZE_URL));
 		$style = '<link rel="stylesheet" href="/css/fam.css">';
 		if(file_exists('/public/css/'.$styler[0].'.css')){
