@@ -3,7 +3,7 @@
 class viewHelper{
 	public function importJS($view){
 		$js = "";
-		switch(){
+		switch($view){
 			case "views/home/index.phtml":
 				$js .= "";
 				break;
