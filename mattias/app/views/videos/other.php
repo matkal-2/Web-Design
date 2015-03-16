@@ -50,7 +50,7 @@ echo '
 							if($_SESSION['role'] < 6){
 								echo '
 								<br>
-								<a href="/mattias/videos/upload" class="anchor-button">Upload File</a>
+								<a href="/videos/upload" class="anchor-button">Upload File</a>
 							';
 							}
 							
@@ -65,9 +65,9 @@ echo '
 						for ($i=0; $i<$amount; $i++){							
 							echo '
 								<div class="result-video">
-									<a href="/mattias/videos/player/'.$videos[$i][1].'">'.$videos[$i][0].'</a>									
+									<a href="/videos/player/'.$videos[$i][1].'">'.$videos[$i][0].'</a>									
 									<br>
-									<a href="/mattias/videos/removevid/'.$videos[$i][1].'">Remove video</a>
+									<a href="/videos/removevid/'.$videos[$i][1].'">Remove video</a>
 								</div>
 								';
 						}

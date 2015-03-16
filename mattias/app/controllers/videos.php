@@ -151,7 +151,7 @@ class Videos extends Controller{
 			}			
 		}
 		else{
-			header( 'Location: /mattias/videos/other' );
+			header( 'Location: /videos/other' );
 		}
 	}
 
@@ -171,7 +171,7 @@ class Videos extends Controller{
 				$this->view('mattias/videos/player', ['color_theme' => $this->getColorTheme(), 'logged_in' => $visitor->isLoggedIn(), 'path' => $path]);
 			}
 			else{
-				header( 'Location: /mattias/videos/other' ) ;
+				header( 'Location: /videos/other' ) ;
 			}
 		}
 	}
@@ -183,6 +183,6 @@ class Videos extends Controller{
 		$videos = $this->model('Videohandler');
 		$u = $videos->removevideo($this->getManager(), $video, 'Video');
 
-		header ( 'Location: /mattias/videos/other' );
+		header ( 'Location: /videos/other' );
 	}
 }

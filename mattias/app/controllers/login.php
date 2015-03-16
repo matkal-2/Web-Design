@@ -7,7 +7,7 @@ class Login extends Controller{
 		if(!$visitor->isLoggedIn()){
 			if(isset($_REQUEST['login_username'])){
 				if($visitor->login($this->getManager())){
-					header( 'Location: /mattias/home' ) ;
+					header( 'Location: /home' ) ;
 				}
 				else{
 					$this->view('login/index', ['color_theme' => $this->getColorTheme(), 'loggin_failed' => true]);
