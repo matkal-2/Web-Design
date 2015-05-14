@@ -23,7 +23,6 @@ class Controller{
 		if(file_exists('/public/css/'.$expView[0].'.css')){
 			$style .= '<link rel="stylesheet" href="/css/'.$expView[0].'.css">';
 		}
-		
 		require_once '../app/views/layouts/'.$layout.'.phtml';
 	}
 
